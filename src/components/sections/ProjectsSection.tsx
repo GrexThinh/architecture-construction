@@ -85,7 +85,7 @@ const ProjectsSection = () => {
     <section id="projects" className="py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-4">
+          <h2 className="text-center font-extrabold sm:text-5xl mb-6 drop-shadow-lg">
             Dự án của chúng tôi
           </h2>
           <p className="text-muted-foreground text-lg mb-8">

@@ -1,6 +1,3 @@
-import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Award, Users, Building, Calendar } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
@@ -9,16 +6,9 @@ import {
   CarouselPrevious,
 } from "../ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import { projects } from "./ProjectsSection";
+import { StatsGrid } from "../ui/statistics";
 
 const AboutSection = () => {
-  const stats = [
-    { icon: Building, value: "200+", label: "Dự án đã hoàn thành" },
-    { icon: Users, value: "50+", label: "Thành viên đội ngũ chuyên gia" },
-    { icon: Calendar, value: "5+", label: "Năm kinh nghiệm" },
-    { icon: Award, value: "25+", label: "Công trình khác nhau" },
-  ];
-
   const values = [
     {
       title: "Đổi mới",
@@ -42,74 +32,81 @@ const AboutSection = () => {
     },
   ];
 
+  const images = [
+    {
+      title: "Công Trình Thực Tế",
+      image: "https://nhadepshouse.com/hinh-anh/quang-cao/trg-1720778380.webp",
+    },
+    {
+      title: "Thiết Kế Kiến Trúc",
+      image: "https://nhadepshouse.com/hinh-anh/quang-cao/trg-1700711160.webp",
+    },
+    {
+      title: "Thiết Kế Nội Thất",
+      image: "https://nhadepshouse.com/hinh-anh/quang-cao/trg-1710228304.webp",
+    },
+    {
+      title: "Thi Công Xây Dựng",
+      image: "https://nhadepshouse.com/hinh-anh/quang-cao/trg-1720777296.webp",
+    },
+  ];
+
   return (
     <section id="about" className="py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
-        {/* About Content */}
-        <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-center mb-16">
-          <div className="space-y-6">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-              Xây dựng sự xuất sắc từ năm 2020
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              ArchBuild Pro là công ty kiến trúc và xây dựng hàng đầu chuyên tạo
-              ra những không gian đặc biệt truyền cảm hứng và bền vững. Đội ngũ
-              chuyên gia giàu kinh nghiệm của chúng tôi kết hợp thiết kế đổi mới
-              với tay nghề vượt trội để thực hiện các dự án vượt quá mong đợi.
-            </p>
-            <p className="text-lg text-muted-foreground">
-              Từ nhà ở dân cư đến các khu phức hợp thương mại, chúng tôi tiếp
-              cận mọi dự án với cùng mức độ đam mê, chú ý đến từng chi tiết, và
-              cam kết về chất lượng đã làm cho chúng tôi trở thành tên tuổi đáng
-              tin cậy trong ngành.
-            </p>
-          </div>
-          <div className="relative">
-            <Carousel
-              className="w-full max-w-xl mx-auto"
-              opts={{ align: "start", loop: true }}
-              plugins={[Autoplay({ delay: 3000, stopOnInteraction: true })]}
-            >
-              <CarouselContent>
-                {projects.map((proj, i) => (
-                  <CarouselItem key={i} className="basis-full">
-                    <div className="relative">
-                      <img
-                        src={proj.image}
-                        alt="Kiến trúc hiện đại"
-                        className="rounded-lg shadow-2xl w-full h-[400px] object-cover"
-                      />
-                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg" />
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
-            </Carousel>
-          </div>
-        </div>
+        <h3 className="text-center font-extrabold sm:text-5xl mb-6 drop-shadow-lg">
+          Về chúng tôi
+        </h3>
 
-        {/* Stats */}
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-16">
-          {stats.map((stat, index) => (
-            <Card
-              key={index}
-              className="text-center p-6 hover:shadow-lg transition-shadow"
-            >
-              <CardContent className="pt-6">
-                <stat.icon className="h-12 w-12 text-primary mx-auto mb-4" />
-                <div className="text-3xl font-bold text-primary mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-muted-foreground">{stat.label}</div>
-              </CardContent>
-            </Card>
-          ))}
+        <StatsGrid />
+
+        <h2 className="text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-4">
+          Các loại công trình đã xây dựng
+        </h2>
+        <p className="text-center text-muted-foreground text-lg mb-8">
+          Khám phá các công trình kiến trúc đa dạng của chúng tôi
+        </p>
+        <div className="relative my-10">
+          <Carousel
+            className="w-full max-w-6xl mx-auto"
+            opts={{ align: "start", loop: true }}
+            plugins={[Autoplay({ delay: 3000, stopOnInteraction: true })]}
+          >
+            <CarouselContent>
+              {images.map((proj, i) => (
+                <CarouselItem
+                  key={i}
+                  className="
+                    basis-full 
+                    sm:basis-1/2 
+                    md:basis-1/3 
+                    lg:basis-1/4
+                  "
+                >
+                  <div className="relative group">
+                    <img
+                      src={proj.image}
+                      alt="công trình"
+                      className="rounded-lg shadow-2xl w-full h-[400px] object-cover cursor-pointer transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-black/20 rounded-lg transition duration-300 group-hover:bg-black/10" />
+                    <h3 className="text-center text-xl font-bold text-white absolute bottom-16 left-0 right-0 p-4">
+                      {proj.title}
+                    </h3>
+                    <button className="text-white absolute bottom-2 left-1/2 -translate-x-1/2 px-4 py-2 bg-primary rounded-lg transition-transform duration-300 group-hover:scale-105">
+                      Xem chi tiết
+                    </button>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
         </div>
 
         {/* Values */}
-        <div className="text-center mb-12">
+        {/* <div className="text-center mb-12">
           <h3 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-4">
             Giá trị của chúng tôi
           </h3>
@@ -131,7 +128,7 @@ const AboutSection = () => {
               </CardContent>
             </Card>
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   );

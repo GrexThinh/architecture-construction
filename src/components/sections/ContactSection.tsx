@@ -82,8 +82,8 @@ const ContactSection = () => {
       <div className="container mx-auto px-4 md:px-6">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-4">
-            Hãy cùng xây dựng điều gì đó tuyệt vời
+          <h2 className="text-center font-extrabold sm:text-5xl mb-6 drop-shadow-lg">
+            Hãy cùng xây dựng công trình tuyệt vời
           </h2>
           <p className="text-muted-foreground text-lg max-w-[800px] mx-auto">
             Sẵn sàng bắt đầu dự án tiếp theo của bạn? Liên hệ với đội ngũ của
@@ -196,14 +196,6 @@ const ContactSection = () => {
 
           {/* Contact Information */}
           <div className="space-y-6">
-            <div>
-              <h3 className="text-2xl font-bold mb-4">Liên hệ với chúng tôi</h3>
-              <p className="text-muted-foreground mb-6">
-                Chúng tôi ở đây để giúp đỡ với mọi nhu cầu kiến trúc và xây dựng
-                của bạn. Liên hệ với chúng tôi qua bất kỳ kênh nào sau đây.
-              </p>
-            </div>
-
             <div className="grid gap-6">
               {contactInfo.map((info, index) => (
                 <Card key={index}>

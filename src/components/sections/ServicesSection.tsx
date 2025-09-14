@@ -14,7 +14,16 @@ import {
   Home,
   Building,
   CheckCircle,
+  ArrowRight,
 } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "../ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 const ServicesSection = () => {
   const services = [
@@ -86,80 +95,112 @@ const ServicesSection = () => {
 
   const process = [
     {
-      step: "01",
+      step: "1",
       title: "Tư vấn",
       description:
         "Cuộc họp ban đầu để hiểu tầm nhìn, yêu cầu và ngân sách của bạn.",
+      image: "https://core29.co.uk/wp-content/uploads/2025/08/Picture4.png",
     },
     {
-      step: "02",
+      step: "2",
       title: "Phát triển thiết kế",
       description:
         "Tạo ra các thiết kế chi tiết và trực quan hóa 3D để bạn phê duyệt.",
+      image:
+        "https://blogcdn.muaban.net/wp-content/uploads/2022/05/09132110/9-ky-su-xay-dung.jpg",
     },
     {
-      step: "03",
-      title: "Lập kế hoạch & Giấy phép",
+      step: "3",
+      title: "Lập kế hoạch, giấy phép",
       description:
         "Xử lý tất cả các giấy phép cần thiết và phê duyệt quy định.",
+      image:
+        "https://cdn.vietnambiz.vn/2019/12/1/photo-1-1575201255304457023286.jpg",
     },
     {
-      step: "04",
+      step: "4",
       title: "Xây dựng",
       description:
         "Quản lý xây dựng chuyên nghiệp từ khởi công đến hoàn thành.",
+      image:
+        "https://core29.co.uk/wp-content/uploads/2025/08/Picture3-768x432.jpg",
     },
     {
-      step: "05",
+      step: "5",
       title: "Bàn giao",
       description:
         "Kiểm tra cuối cùng và bàn giao dự án đã hoàn thành của bạn.",
+      image:
+        "https://cdn2.fptshop.com.vn/unsafe/1920x0/filters:format(webp):quality(75)/2024_1_6_638401392840796085_nganh-xay-dung-0.jpg",
     },
   ];
 
   return (
     <section
       id="services"
-      className="py-16 md:py-24 bg-muted/50 dark:bg-muted/20"
+      className="py-16 md:py-24 bg-muted/60 dark:bg-muted/20"
     >
       <div className="container mx-auto px-4 md:px-6">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-4">
+          <h2 className="text-center font-extrabold sm:text-5xl mb-6 drop-shadow-lg">
             Dịch vụ kiến trúc & xây dựng toàn diện
           </h2>
-          <p className="text-muted-foreground text-lg max-w-[800px] mx-auto">
-            Từ ý tưởng ban đầu đến xây dựng cuối cùng, chúng tôi cung cấp giải
-            pháp toàn diện cho mọi nhu cầu kiến trúc và xây dựng của bạn.
-          </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-16">
-          {services.map((service, index) => (
-            <Card
-              key={index}
-              className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-            >
-              <CardHeader>
-                <service.icon className="h-12 w-12 text-primary mb-4" />
-                <CardTitle>{service.title}</CardTitle>
-                <CardDescription className="text-base">
-                  {service.description}
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2">
-                  {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center gap-2 text-sm">
-                      <CheckCircle className="h-4 w-4 text-primary flex-shrink-0" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-          ))}
+        <div className="relative my-10">
+          <Carousel
+            className="w-full max-w-6xl mx-auto rounded-lg overflow-hidden shadow-xl"
+            opts={{ align: "start", loop: true }}
+            plugins={[Autoplay({ delay: 3000, stopOnInteraction: true })]}
+          >
+            <CarouselContent>
+              {services.map((service, i) => (
+                <CarouselItem key={i} className="basis-full">
+                  <div className="grid md:grid-cols-2 ">
+                    <div className="bg-[#0f1631] text-white px-8 py-10 md:px-14 md:py-16">
+                      <h3 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
+                        {service.title}
+                      </h3>
+
+                      <p className="mt-6 text-base sm:text-lg text-white/80 max-w-2xl">
+                        {service.description}
+                      </p>
+
+                      <ul className="mt-8 space-y-3">
+                        {service.features.map((feature, idx) => (
+                          <li
+                            key={idx}
+                            className="flex items-start gap-2 text-sm sm:text-base"
+                          >
+                            <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      <button
+                        className="mt-10 inline-flex items-center px-5 py-3 rounded-xl bg-primary font-semibold
+                   transition-transform duration-300 hover:scale-[1.03] focus:outline-none"
+                      >
+                        Xem chi tiết
+                      </button>
+                    </div>
+                    <div className="relative min-h-[260px] md:min-h-[420px]">
+                      <img
+                        src="https://nhadepshouse.com/hinh-anh/quang-cao/trg-1720778380.webp"
+                        alt="công trình"
+                        className="absolute inset-0 h-full w-full object-cover"
+                      />
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
         </div>
 
         {/* Process Section */}
@@ -172,17 +213,46 @@ const ServicesSection = () => {
             thực
           </p>
         </div>
+        <div className="grid gap-6 md:grid-cols-5 items-stretch relative">
+          {process.map((cs, i) => (
+            <div key={i} className="relative flex h-full flex-col">
+              {/* Arrow connector (only between items, not last one) */}
+              {i < process.length - 1 && (
+                <div className="hidden md:block absolute top-1/2 right-[-12px] -translate-y-1/2 translate-x-1/2 z-10 bg-primary rounded-xl p-1">
+                  <ArrowRight className="h-4 w-4 text-zinc-50" />
+                </div>
+              )}
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-5">
-          {process.map((item, index) => (
-            <div key={index} className="text-center">
-              <div className="w-16 h-16 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
-                {item.step}
-              </div>
-              <h4 className="text-lg font-semibold mb-2">{item.title}</h4>
-              <p className="text-muted-foreground text-sm">
-                {item.description}
-              </p>
+              <a
+                href={"#"}
+                className="group flex h-full flex-col rounded-lg border bg-card/50 shadow-sm overflow-hidden transition-shadow hover:shadow-lg relative"
+              >
+                {/* Step number top-left */}
+                <span className="absolute top-0 left-0 z-20 flex h-10 w-10 items-center justify-center bg-primary text-white font-bold shadow-md">
+                  {cs.step}
+                </span>
+
+                {/* Top content */}
+                <div className="space-y-4 p-5 bg-muted/40 flex-1 mt-10">
+                  <h3 className="text-lg font-semibold leading-snug mt-5 sm:mt-0">
+                    {cs.title}
+                  </h3>
+
+                  <p className="text-sm text-muted-foreground">
+                    {cs.description}
+                  </p>
+                </div>
+
+                {/* Image footer */}
+                <div className="relative h-40 w-full">
+                  <img
+                    src={cs.image}
+                    alt={cs.title}
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                  <div className="pointer-events-none absolute inset-0 ring-1 ring-black/5" />
+                </div>
+              </a>
             </div>
           ))}
         </div>

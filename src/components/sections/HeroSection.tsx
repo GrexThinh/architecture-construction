@@ -25,31 +25,50 @@ const HeroSection = () => {
       className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/10 via-background to-primary/5 pt-16 md:pt-20"
     >
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-center">
-          <div className="space-y-6 text-center lg:text-left">
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
+        <div className="relative h-[90vh]">
+          <video
+            autoPlay
+            loop
+            muted
+            src="https://nhadepshouse.com/Giới Thiệu Quy Trình Thiết Kế - Thi Công S-House.mp4"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+
+          {/* Overlay for better contrast */}
+          <div className="absolute inset-0 bg-black/50" />
+
+          {/* Centered content */}
+          <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
+            <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight drop-shadow-lg">
               Xây dựng kiến trúc
-              <span className="text-primary block pt-3">của bạn hôm nay</span>
+              <span className="block pt-4 drop-shadow-md">
+                của bạn hôm nay
+              </span>
             </h1>
-            <p className="text-lg text-muted-foreground md:text-xl max-w-[600px] mx-auto lg:mx-0">
-              Chúng tôi tạo ra những thiết kế kiến trúc đặc biệt và thực hiện
-              các dự án xây dựng xuất sắc vượt qua thử thách thời gian. Từ ý
-              tưởng đến hoàn thành, chúng tôi là đối tác đáng tin cậy của bạn.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button size="lg" onClick={() => scrollToSection("#projects")}>
-                Xem dự án của chúng tôi
+
+            {/* Buttons */}
+            <div className="mt-10 flex flex-col sm:flex-row gap-4">
+              <Button
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/30 transition-transform duration-300 hover:scale-105"
+                onClick={() => scrollToSection("#projects")}
+              >
+                Dự án của chúng tôi
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
               <Button
                 variant="outline"
                 size="lg"
+                className="border-white text-dark hover:border-primary transition-transform duration-300 hover:scale-105"
                 onClick={() => scrollToSection("#services")}
               >
                 Dịch vụ của chúng tôi
               </Button>
             </div>
           </div>
+        </div>
+        {/* <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-center">
+          <div className="space-y-6 text-center lg:text-left"></div>
           <div className="relative">
             <Carousel
               className="w-full max-w-xl mx-auto"
@@ -74,7 +93,7 @@ const HeroSection = () => {
               <CarouselNext />
             </Carousel>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
