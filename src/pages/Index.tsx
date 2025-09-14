@@ -7,6 +7,7 @@ import ProjectsSection from "@/components/sections/ProjectsSection";
 import ContactSection from "@/components/sections/ContactSection";
 import { Building2, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import FloatingContacts from "@/components/ui/float-contact";
 
 const Index = () => {
   const scrollToSection = (href: string) => {
@@ -28,9 +29,18 @@ const Index = () => {
         <ContactSection />
       </main>
 
-      {/* CTA Section */}
-      <section className="py-12 md:py-24 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4 md:px-6 text-center">
+      <section className="relative py-12 md:py-24 text-primary-foreground">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage:
+              "url('https://vanangroup.com.vn/wp-content/uploads/2024/11/Construction-site-la-gi-Tim-hieu-chi-tiet-ve-cong-trinh-xay-dung.webp')",
+          }}
+        />
+
+        <div className="absolute inset-0 bg-black/60" />
+
+        <div className="relative container mx-auto px-4 md:px-6 text-center">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-4">
             Sẵn sàng bắt đầu dự án của bạn?
           </h2>
@@ -38,11 +48,7 @@ const Index = () => {
             Hãy thảo luận về tầm nhìn của bạn và biến nó thành hiện thực. Liên
             hệ với chúng tôi ngay hôm nay để được tư vấn miễn phí.
           </p>
-          <Button
-            size="lg"
-            variant="secondary"
-            onClick={() => scrollToSection("#contact")}
-          >
+          <Button size="lg" onClick={() => scrollToSection("#contact")}>
             Bắt đầu ngay hôm nay
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
@@ -60,8 +66,13 @@ const Index = () => {
               </div>
               <p className="text-muted-foreground text-sm">
                 Tạo ra những thiết kế kiến trúc và giải pháp xây dựng đặc biệt
-                từ năm 2010.
+                từ năm 2020.
               </p>
+              <img
+                src="https://nhadepshouse.com/images/bct.png"
+                alt="chứng nhận"
+                className="w-1/2"
+              />
             </div>
             <div>
               <h4 className="font-semibold mb-4">Dịch vụ</h4>
@@ -112,10 +123,12 @@ const Index = () => {
             </div>
           </div>
           <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">
-            <p>&copy; 2024 ArchBuild Pro. Tất cả quyền được bảo lưu.</p>
+            <p>&copy; 2025 Grex Solution. Tất cả quyền được bảo lưu.</p>
           </div>
         </div>
       </footer>
+
+      <FloatingContacts />
     </div>
   );
 };

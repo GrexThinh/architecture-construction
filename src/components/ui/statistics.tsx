@@ -52,7 +52,7 @@ export function StatsGrid() {
           </div>
         </div>
 
-        <div className="flex flex-col justify-between text-secondary text-rose-600">
+        <div className="flex flex-col justify-between text-rose-600">
           {stats.map((s, i) => (
             <motion.div
               key={i}

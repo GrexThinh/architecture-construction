@@ -49,27 +49,17 @@ const ContactSection = () => {
       icon: MapPin,
       title: "Thăm văn phòng của chúng tôi",
       details: [
-        "888/40 Lạc Long Quân",
-        "Phường Tân Hòa, TP. Hồ Chí Minh, Việt Nam",
+        "888/40 Lạc Long Quân, Phường Tân Hòa, TP. Hồ Chí Minh, Việt Nam",
+        "Giờ làm việc: Thứ Hai - Thứ Sáu: 8:00 - 18:00",
       ],
     },
     {
       icon: Phone,
-      title: "Gọi cho chúng tôi",
-      details: ["+84 832619515", "+84 832612464", "T2-T6 8:00-18:00"],
-    },
-    {
-      icon: Mail,
-      title: "Gửi email cho chúng tôi",
-      details: ["info@archbuildpro.com"],
-    },
-    {
-      icon: Clock,
-      title: "Giờ làm việc",
+      title: "Liên hệ chúng tôi",
       details: [
-        "Thứ Hai - Thứ Sáu: 8:00 - 18:00",
-        "Thứ Bảy: 9:00 - 16:00",
-        "Chủ Nhật: Nghỉ",
+        "0832619515",
+        "0832612464",
+        "Email: info@archbuildpro.com",
       ],
     },
   ];

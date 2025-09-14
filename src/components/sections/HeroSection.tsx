@@ -27,11 +27,23 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="relative h-[90vh]">
           <video
-            autoPlay
-            loop
-            muted
-            src="https://nhadepshouse.com/Giới Thiệu Quy Trình Thiết Kế - Thi Công S-House.mp4"
+            src={encodeURI(
+              "https://nhadepshouse.com/Giới Thiệu Quy Trình Thiết Kế - Thi Công S-House.mp4"
+            )}
             className="absolute inset-0 w-full h-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            webkit-playsinline="true"
+            preload="metadata"
+            onCanPlay={(e) => {
+              const v = e.currentTarget;
+              if (v.paused)
+                v.play().catch(() => {
+                  
+                });
+            }}
           />
 
           {/* Overlay for better contrast */}
@@ -39,11 +51,9 @@ const HeroSection = () => {
 
           {/* Centered content */}
           <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
-            <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight drop-shadow-lg">
+            <h1 className="text-white text-2xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight drop-shadow-lg">
               Xây dựng kiến trúc
-              <span className="block pt-4 drop-shadow-md">
-                của bạn hôm nay
-              </span>
+              <span className="block pt-4 drop-shadow-md">của bạn hôm nay</span>
             </h1>
 
             {/* Buttons */}

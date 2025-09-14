@@ -216,7 +216,6 @@ const ServicesSection = () => {
         <div className="grid gap-6 md:grid-cols-5 items-stretch relative">
           {process.map((cs, i) => (
             <div key={i} className="relative flex h-full flex-col">
-              {/* Arrow connector (only between items, not last one) */}
               {i < process.length - 1 && (
                 <div className="hidden md:block absolute top-1/2 right-[-12px] -translate-y-1/2 translate-x-1/2 z-10 bg-primary rounded-xl p-1">
                   <ArrowRight className="h-4 w-4 text-zinc-50" />
@@ -227,14 +226,12 @@ const ServicesSection = () => {
                 href={"#"}
                 className="group flex h-full flex-col rounded-lg border bg-card/50 shadow-sm overflow-hidden transition-shadow hover:shadow-lg relative"
               >
-                {/* Step number top-left */}
                 <span className="absolute top-0 left-0 z-20 flex h-10 w-10 items-center justify-center bg-primary text-white font-bold shadow-md">
                   {cs.step}
                 </span>
 
-                {/* Top content */}
-                <div className="space-y-4 p-5 bg-muted/40 flex-1 mt-10">
-                  <h3 className="text-lg font-semibold leading-snug mt-5 sm:mt-0">
+                <div className="space-y-4 p-3 bg-muted/40 flex-1 mt-10">
+                  <h3 className="text-lg font-semibold leading-snug">
                     {cs.title}
                   </h3>
 
@@ -243,7 +240,6 @@ const ServicesSection = () => {
                   </p>
                 </div>
 
-                {/* Image footer */}
                 <div className="relative h-40 w-full">
                   <img
                     src={cs.image}
