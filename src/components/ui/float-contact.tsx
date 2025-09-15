@@ -26,13 +26,12 @@ export default function FloatingContacts() {
       <a
         href="https://zalo.me/0587030273"
         className="
-    group w-12 h-12 rounded-full shadow-lg
+    group w-11 h-11 rounded-full shadow-lg
     flex items-center justify-center hover:scale-110 active:scale-95 transition
-    ring-2 ring-sky-400/30
     animate-pulseRing
-  "
+    "
       >
-        <img src="https://nhadepshouse.com/images/stick_zalo.png" alt="Zalo" />
+        <img src="/images/zalo.png" alt="Zalo" />
       </a>
 
       <a

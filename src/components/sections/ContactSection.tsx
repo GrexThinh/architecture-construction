@@ -56,11 +56,7 @@ const ContactSection = () => {
     {
       icon: Phone,
       title: "Liên hệ chúng tôi",
-      details: [
-        "0832619515",
-        "0832612464",
-        "Email: info@archbuildpro.com",
-      ],
+      details: ["0832619515", "Email: info@archbuildpro.com"],
     },
   ];
 
@@ -73,13 +69,13 @@ const ContactSection = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-center font-extrabold sm:text-5xl mb-6 drop-shadow-lg">
-            Hãy cùng xây dựng công trình tuyệt vời
+            Hãy cùng hợp tác xây dựng công trình tuyệt vời
           </h2>
-          <p className="text-muted-foreground text-lg max-w-[800px] mx-auto">
+          {/* <p className="text-muted-foreground text-lg max-w-[800px] mx-auto">
             Sẵn sàng bắt đầu dự án tiếp theo của bạn? Liên hệ với đội ngũ của
             chúng tôi để được tư vấn miễn phí và hãy thảo luận cách chúng tôi có
             thể biến tầm nhìn của bạn thành hiện thực.
-          </p>
+          </p> */}
         </div>
 
         <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
@@ -139,27 +135,23 @@ const ContactSection = () => {
                         <SelectValue placeholder="Chọn một dịch vụ" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="architectural-design">
+                        <SelectItem value=" Thiết kế kiến trúc">
                           Thiết kế kiến trúc
                         </SelectItem>
-                        <SelectItem value="construction-management">
+                        <SelectItem value="Quản lý xây dựng">
                           Quản lý xây dựng
                         </SelectItem>
-                        <SelectItem value="structural-engineering">
+                        <SelectItem value="Kỹ thuật kết cấu">
                           Kỹ thuật kết cấu
                         </SelectItem>
-                        <SelectItem value="project-planning">
+                        <SelectItem value="Lập kế hoạch dự án">
                           Lập kế hoạch dự án
                         </SelectItem>
-                        <SelectItem value="residential">
-                          Dự án dân cư
-                        </SelectItem>
-                        <SelectItem value="commercial">
+                        <SelectItem value="Dân cư">Dự án dân cư</SelectItem>
+                        <SelectItem value="Thương mại">
                           Dự án thương mại
                         </SelectItem>
-                        <SelectItem value="consultation">
-                          Tư vấn chung
-                        </SelectItem>
+                        <SelectItem value="Tư vấn">Tư vấn chung</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>

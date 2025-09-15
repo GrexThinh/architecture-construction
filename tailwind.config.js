@@ -6,10 +6,9 @@ export default {
     extend: {
       fontFamily: {
         sans: [
+          "Roboto Condensed",
+          "Oswald",
           "Inter",
-          "Be Vietnam Pro",
-          "Nunito Sans",
-          "Roboto",
           "system-ui",
           "-apple-system",
           "BlinkMacSystemFont",
@@ -17,9 +16,9 @@ export default {
           "sans-serif",
         ],
         display: [
-          "Be Vietnam Pro",
+          "Oswald",
+          "Roboto Condensed",
           "Inter",
-          "Nunito Sans",
           "system-ui",
           "-apple-system",
           "BlinkMacSystemFont",

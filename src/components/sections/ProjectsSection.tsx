@@ -8,7 +8,7 @@ export const projects = [
   {
     id: 1,
     title: "Khu phức hợp văn phòng hiện đại",
-    category: "commercial",
+    category: "Thương mại",
     location: "Khu trung tâm",
     year: "2023",
     team: "15 người",
@@ -20,7 +20,7 @@ export const projects = [
   {
     id: 2,
     title: "Tòa nhà dân cư cao cấp",
-    category: "residential",
+    category: "Dân cư",
     location: "Khu vực ven biển",
     year: "2023",
     team: "20 người",
@@ -32,7 +32,7 @@ export const projects = [
   {
     id: 3,
     title: "Trung tâm văn hóa",
-    category: "public",
+    category: "Công cộng",
     location: "Trung tâm thành phố",
     year: "2022",
     team: "25 người",
@@ -44,7 +44,7 @@ export const projects = [
   {
     id: 4,
     title: "Nhà ở bền vững",
-    category: "residential",
+    category: "Dân cư",
     location: "Thung lũng xanh",
     year: "2022",
     team: "12 người",
@@ -56,7 +56,66 @@ export const projects = [
   {
     id: 5,
     title: "Trung tâm thương mại",
-    category: "commercial",
+    category: "Thương mại",
+    location: "Quảng trường ngoại ô",
+    year: "2021",
+    team: "30 người",
+    image:
+      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=500&h=300&fit=crop",
+    description: "Điểm đến mua sắm hiện đại với không gian bán lẻ đổi mới.",
+  },
+  {
+    id: 6,
+    title: "Khu phức hợp văn phòng hiện đại",
+    category: "Thương mại",
+    location: "Khu trung tâm",
+    year: "2023",
+    team: "15 người",
+    image:
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=500&h=300&fit=crop",
+    description:
+      "Khu phức hợp văn phòng hiện đại với thiết kế bền vững và tiện nghi hiện đại.",
+  },
+  {
+    id: 7,
+    title: "Tòa nhà dân cư cao cấp",
+    category: "Dân cư",
+    location: "Khu vực ven biển",
+    year: "2023",
+    team: "20 người",
+    image:
+      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=500&h=300&fit=crop",
+    description:
+      "Tòa nhà dân cư cao cấp với tầm nhìn toàn cảnh thành phố và hoàn thiện cao cấp.",
+  },
+  {
+    id: 8,
+    title: "Trung tâm văn hóa",
+    category: "Công cộng",
+    location: "Trung tâm thành phố",
+    year: "2022",
+    team: "25 người",
+    image:
+      "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=500&h=300&fit=crop",
+    description:
+      "Trung tâm văn hóa đa mục đích thúc đẩy nghệ thuật và sự tham gia cộng đồng.",
+  },
+  {
+    id: 9,
+    title: "Nhà ở bền vững",
+    category: "Dân cư",
+    location: "Thung lũng xanh",
+    year: "2022",
+    team: "12 người",
+    image:
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=500&h=300&fit=crop",
+    description:
+      "Khu phát triển nhà ở thân thiện với môi trường với hệ thống năng lượng tái tạo.",
+  },
+  {
+    id: 10,
+    title: "Trung tâm thương mại",
+    category: "Thương mại",
     location: "Quảng trường ngoại ô",
     year: "2021",
     team: "30 người",
@@ -67,17 +126,17 @@ export const projects = [
 ];
 
 const ProjectsSection = () => {
-  const [filter, setFilter] = useState("all");
+  const [filter, setFilter] = useState("Tất cả");
 
   const categories = [
-    { value: "all", label: "Tất cả dự án" },
-    { value: "residential", label: "Dân cư" },
-    { value: "commercial", label: "Thương mại" },
-    { value: "public", label: "Công cộng" },
+    { value: "Tất cả", label: "Tất cả dự án" },
+    { value: "Dân cư", label: "Dân cư" },
+    { value: "Thương mại", label: "Thương mại" },
+    { value: "Công cộng", label: "Công cộng" },
   ];
 
   const filteredProjects =
-    filter === "all"
+    filter === "Tất cả"
       ? projects
       : projects.filter((project) => project.category === filter);
 
@@ -88,9 +147,9 @@ const ProjectsSection = () => {
           <h2 className="text-center font-extrabold sm:text-5xl mb-6 drop-shadow-lg">
             Dự án của chúng tôi
           </h2>
-          <p className="text-muted-foreground text-lg mb-8">
+          {/* <p className="text-muted-foreground text-lg mb-8">
             Khám phá loạt dự án kiến trúc và xây dựng đa dạng của chúng tôi
-          </p>
+          </p> */}
 
           {/* Filter Buttons */}
           <div className="flex flex-wrap gap-2 justify-center">
@@ -108,43 +167,46 @@ const ProjectsSection = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {filteredProjects.map((project) => (
             <Card
               key={project.id}
-              className="overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+              className="group overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border-0 cursor-pointer"
             >
-              <div className="relative">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-48 object-cover"
-                />
-                <Badge className="absolute top-2 right-2 bg-primary text-primary-foreground">
-                  {project.category}
-                </Badge>
-              </div>
-              <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                <p className="text-muted-foreground mb-4">
-                  {project.description}
-                </p>
-
-                <div className="space-y-2 text-sm">
-                  <div className="flex items-center gap-2">
-                    <MapPin className="h-4 w-4 text-primary" />
-                    <span>{project.location}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Calendar className="h-4 w-4 text-primary" />
-                    <span>Hoàn thành năm {project.year}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Users className="h-4 w-4 text-primary" />
-                    <span>Đội ngũ {project.team}</span>
-                  </div>
+              <div className="relative p-2 bg-white border border-gray-300">
+                <div className="relative aspect-[4/5]">
+                  {(() => {
+                    const images = [project.image, project.image];
+                    return (
+                      <div className="absolute inset-0">
+                        <div className="absolute inset-0 translate-x-[-12px] translate-y-[12px] -rotate-2 p-2 bg-white border border-gray-300 rounded-sm shadow-sm">
+                          <img
+                            src={images[1]}
+                            alt=""
+                            className="h-full w-full object-cover rounded-[2px]"
+                          />
+                        </div>
+                        <div className="absolute inset-0 p-2 bg-white border border-gray-300 rounded-sm ring-1 ring-black/5 overflow-hidden">
+                          <img
+                            src={images[0]}
+                            alt={project.title}
+                            className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110 rounded-[2px]"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity rounded-sm"></div>
+                          <div className="absolute inset-0 flex items-end justify-center pb-6 px-4 text-center">
+                            <h3 className="text-white text-base sm:text-lg md:text-xl font-semibold tracking-wide leading-snug uppercase drop-shadow-md">
+                              {project.title}
+                            </h3>
+                          </div>
+                          <Badge className="absolute top-3 left-3 bg-primary text-primary-foreground rounded-sm">
+                            {project.category}
+                          </Badge>
+                        </div>
+                      </div>
+                    );
+                  })()}
                 </div>
-              </CardContent>
+              </div>
             </Card>
           ))}
         </div>

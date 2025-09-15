@@ -208,10 +208,10 @@ const ServicesSection = () => {
           <h3 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-4">
             Quy trình của chúng tôi
           </h3>
-          <p className="text-muted-foreground text-lg">
+          {/* <p className="text-muted-foreground text-lg">
             Phương pháp tiếp cận hiệu quả để biến tầm nhìn của bạn thành hiện
             thực
-          </p>
+          </p> */}
         </div>
         <div className="grid gap-6 md:grid-cols-5 items-stretch relative">
           {process.map((cs, i) => (
@@ -224,13 +224,13 @@ const ServicesSection = () => {
 
               <a
                 href={"#"}
-                className="group flex h-full flex-col rounded-lg border bg-card/50 shadow-sm overflow-hidden transition-shadow hover:shadow-lg relative"
+                className="group inset-0 flex h-full flex-col rounded-lg border bg-card/50 shadow-sm overflow-hidden transition-shadow hover:shadow-lg relative"
               >
                 <span className="absolute top-0 left-0 z-20 flex h-10 w-10 items-center justify-center bg-primary text-white font-bold shadow-md">
                   {cs.step}
                 </span>
 
-                <div className="space-y-4 p-3 bg-muted/40 flex-1 mt-10">
+                <div className="space-y-4 p-3 flex-1 mt-10">
                   <h3 className="text-lg font-semibold leading-snug">
                     {cs.title}
                   </h3>

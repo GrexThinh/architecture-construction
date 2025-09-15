@@ -5,7 +5,7 @@ import AboutSection from "@/components/sections/AboutSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import ProjectsSection from "@/components/sections/ProjectsSection";
 import ContactSection from "@/components/sections/ContactSection";
-import { Building2, ArrowRight } from "lucide-react";
+import { Building2, ArrowRight, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import FloatingContacts from "@/components/ui/float-contact";
 
@@ -42,7 +42,7 @@ const Index = () => {
 
         <div className="relative container mx-auto px-4 md:px-6 text-center">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-4">
-            Sẵn sàng bắt đầu dự án của bạn?
+            Sẵn sàng xây dựng công trình của bạn?
           </h2>
           <p className="text-lg mb-8 max-w-[600px] mx-auto opacity-90">
             Hãy thảo luận về tầm nhìn của bạn và biến nó thành hiện thực. Liên
@@ -60,16 +60,30 @@ const Index = () => {
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid gap-8 md:grid-cols-4">
             <div className="space-y-4">
-              <div className="flex items-center gap-2">
-                <Building2 className="text-primary" size={24} />
-                <span className="font-bold text-lg">ArchBuild Pro</span>
+              <div className="flex items-center gap-3">
+                <img src="/images/logo.jpg" alt="logo" className="w-12" />
+                <div>
+                  <h1 className="text-xl font-bold text-primary">
+                    Binh Khang Company
+                  </h1>
+                  <div className="flex gap-1">
+                    {Array.from({ length: 5 }).map((_, index) => (
+                      <Star
+                        key={index}
+                        className="text-yellow-500 inline-block"
+                        fill="currentColor"
+                        size={20}
+                      />
+                    ))}
+                  </div>
+                </div>
               </div>
               <p className="text-muted-foreground text-sm">
                 Tạo ra những thiết kế kiến trúc và giải pháp xây dựng đặc biệt
                 từ năm 2020.
               </p>
               <img
-                src="https://nhadepshouse.com/images/bct.png"
+                src="/images/certified.png"
                 alt="chứng nhận"
                 className="w-1/2"
               />
@@ -123,7 +137,7 @@ const Index = () => {
             </div>
           </div>
           <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">
-            <p>&copy; 2025 Grex Solution. Tất cả quyền được bảo lưu.</p>
+            <p>&copy; 2025 Grex Solution. All rights reserved.</p>
           </div>
         </div>
       </footer>

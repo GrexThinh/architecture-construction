@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Building2, Menu, X, Sun, Moon } from "lucide-react";
+import { Building2, Menu, X, Sun, Moon, Star } from "lucide-react";
 import { useTheme } from "next-themes";
 
 const TopNavigation = () => {
@@ -44,10 +44,21 @@ const TopNavigation = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <Building2 className="text-primary" size={32} />
+            <img src="/images/logo.jpg" alt="logo" className="w-12" />
             <div>
-              <h1 className="text-xl font-bold text-primary">ArchBuild</h1>
-              <p className="text-xs text-muted-foreground">Pro</p>
+              <h1 className="text-xl font-bold text-primary">
+                Binh Khang Company
+              </h1>
+              <div className="flex gap-1">
+                {Array.from({ length: 5 }).map((_, index) => (
+                  <Star
+                    key={index}
+                    className="text-yellow-500 inline-block"
+                    fill="currentColor"
+                    size={20}
+                  />
+                ))}
+              </div>
             </div>
           </div>
 
