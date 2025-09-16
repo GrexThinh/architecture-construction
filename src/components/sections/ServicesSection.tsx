@@ -38,6 +38,8 @@ const ServicesSection = () => {
         "Tuân thủ quy chuẩn xây dựng",
         "Lập kế hoạch không gian nội thất",
       ],
+      image:
+        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=500&h=300&fit=crop",
     },
     {
       icon: Hammer,
@@ -50,6 +52,8 @@ const ServicesSection = () => {
         "Quản lý ngân sách",
         "Tuân thủ an toàn",
       ],
+      image:
+        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=500&h=300&fit=crop",
     },
     {
       icon: Building2,
@@ -62,6 +66,8 @@ const ServicesSection = () => {
         "Kỹ thuật chống động đất",
         "Tính toán tải trọng",
       ],
+      image:
+        "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=500&h=300&fit=crop",
     },
     {
       icon: Cog,
@@ -73,12 +79,16 @@ const ServicesSection = () => {
         "Ước tính chi phí",
         "Phát triển thời gian",
       ],
+      image:
+        "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=500&h=300&fit=crop",
     },
     {
       icon: Home,
       title: "Dự án dân cư",
       description: "Dịch vụ thiết kế và xây dựng nhà ở tùy chỉnh.",
       features: ["Nhà ở tùy chỉnh", "Cải tạo", "Mở rộng", "Tích hợp cảnh quan"],
+      image:
+        "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=500&h=300&fit=crop",
     },
     {
       icon: Building,
@@ -90,6 +100,7 @@ const ServicesSection = () => {
         "Kho bãi",
         "Phát triển đa mục đích",
       ],
+      image: "https://nhadepshouse.com/hinh-anh/quang-cao/trg-1720778380.webp",
     },
   ];
 
@@ -143,7 +154,7 @@ const ServicesSection = () => {
       <div className="container mx-auto px-4 md:px-6">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-center font-extrabold sm:text-5xl mb-6 drop-shadow-lg">
+          <h2 className="text-center font-extrabold text-4xl md:text-5xl mb-6 drop-shadow-lg underline decoration-primary underline-offset-4 decoration-2">
             Dịch vụ kiến trúc & xây dựng toàn diện
           </h2>
         </div>
@@ -151,15 +162,15 @@ const ServicesSection = () => {
         {/* Services Grid */}
         <div className="relative my-10">
           <Carousel
-            className="w-full max-w-6xl mx-auto rounded-lg overflow-hidden shadow-xl"
+            className="w-full max-w-7xl mx-auto rounded-lg overflow-hidden shadow-xl"
             opts={{ align: "start", loop: true }}
             plugins={[Autoplay({ delay: 3000, stopOnInteraction: true })]}
           >
             <CarouselContent>
               {services.map((service, i) => (
                 <CarouselItem key={i} className="basis-full">
-                  <div className="grid md:grid-cols-2 ">
-                    <div className="bg-[#0f1631] text-white px-8 py-10 md:px-14 md:py-16">
+                  <div className="grid md:grid-cols-2 h-full">
+                    <div className="bg-[#0f1631] text-white p-8 md:p-14">
                       <h3 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
                         {service.title}
                       </h3>
@@ -189,7 +200,7 @@ const ServicesSection = () => {
                     </div>
                     <div className="relative min-h-[260px] md:min-h-[420px]">
                       <img
-                        src="https://nhadepshouse.com/hinh-anh/quang-cao/trg-1720778380.webp"
+                        src={service.image}
                         alt="công trình"
                         className="absolute inset-0 h-full w-full object-cover"
                       />
@@ -205,7 +216,7 @@ const ServicesSection = () => {
 
         {/* Process Section */}
         <div className="text-center mb-12">
-          <h3 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-4">
+          <h3 className="text-4xl md:text-5xl font-bold tracking-tighter mb-4 underline decoration-primary underline-offset-4 decoration-2">
             Quy trình của chúng tôi
           </h3>
           {/* <p className="text-muted-foreground text-lg">
@@ -213,11 +224,11 @@ const ServicesSection = () => {
             thực
           </p> */}
         </div>
-        <div className="grid gap-6 md:grid-cols-5 items-stretch relative">
+        <div className="grid md:grid-cols-5 items-stretch relative justify-self-center gap-10">
           {process.map((cs, i) => (
-            <div key={i} className="relative flex h-full flex-col">
+            <div key={i} className="relative flex h-full md:w-[250px] flex-col">
               {i < process.length - 1 && (
-                <div className="hidden md:block absolute top-1/2 right-[-12px] -translate-y-1/2 translate-x-1/2 z-10 bg-primary rounded-xl p-1">
+                <div className="hidden md:block absolute top-1/2 right-[-20px] -translate-y-1/2 translate-x-1/2 z-10 bg-primary rounded-xl p-1">
                   <ArrowRight className="h-4 w-4 text-zinc-50" />
                 </div>
               )}

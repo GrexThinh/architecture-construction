@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { MapPin, Calendar, Users } from "lucide-react";
 
 export const projects = [
   {
@@ -60,8 +59,7 @@ export const projects = [
     location: "Quảng trường ngoại ô",
     year: "2021",
     team: "30 người",
-    image:
-      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=500&h=300&fit=crop",
+    image: "https://nhadepshouse.com/hinh-anh/quang-cao/trg-1720778380.webp",
     description: "Điểm đến mua sắm hiện đại với không gian bán lẻ đổi mới.",
   },
   {
@@ -144,7 +142,7 @@ const ProjectsSection = () => {
     <section id="projects" className="py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
-          <h2 className="text-center font-extrabold sm:text-5xl mb-6 drop-shadow-lg">
+          <h2 className="text-center font-extrabold text-4xl md:text-5xl mb-6 drop-shadow-lg underline decoration-primary underline-offset-4 decoration-2">
             Dự án của chúng tôi
           </h2>
           {/* <p className="text-muted-foreground text-lg mb-8">
@@ -171,6 +169,10 @@ const ProjectsSection = () => {
           {filteredProjects.map((project) => (
             <Card
               key={project.id}
+              onClick={() => {
+                window.location.hash = `#project/${project.id}`;
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
               className="group overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border-0 cursor-pointer"
             >
               <div className="relative p-2 bg-white border border-gray-300">

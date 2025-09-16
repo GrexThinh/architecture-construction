@@ -27,8 +27,8 @@ export function StatsGrid() {
     <section className="rounded-xl p-6 sm:px-10 md:px-14 md:py-16 lg:px-20 lg:py-20">
       <div className="grid gap-12 lg:gap-16 md:grid-cols-2">
         <div className="max-w-xl flex flex-col">
-          <h2 className="mt-3 sm:text-5xl md:text-5xl font-extrabold tracking-tight text-primary">
-            Công ty Bình Khang
+          <h2 className="mt-3 text-3xl md:text-5xl font-extrabold tracking-tight text-primary dark:text-white">
+            Công ty xây dựng Bình Khang
           </h2>
           <p className="my-6 text-base sm:text-lg leading-relaxed md:leading-8 opacity-90">
             Từ một nhà thầu địa phương đến một công ty lớn đa dịch vụ, chúng tôi
@@ -51,7 +51,7 @@ export function StatsGrid() {
           </div>
         </div>
 
-        <div className="flex flex-col justify-between text-orange-600">
+        <div className="flex flex-col justify-between text-primary dark:text-white">
           {stats.map((s, i) => (
             <motion.div
               key={i}

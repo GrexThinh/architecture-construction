@@ -5,9 +5,11 @@ import AboutSection from "@/components/sections/AboutSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import ProjectsSection from "@/components/sections/ProjectsSection";
 import ContactSection from "@/components/sections/ContactSection";
-import { Building2, ArrowRight, Star } from "lucide-react";
+import FeedbackSection from "@/components/sections/FeedbackSection";
+import { ArrowRight, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import FloatingContacts from "@/components/ui/float-contact";
+import { useEffect } from "react";
 
 const Index = () => {
   const scrollToSection = (href: string) => {
@@ -16,6 +18,14 @@ const Index = () => {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  useEffect(() => {
+    // If navigated with a hash, ensure scrolling after mount
+    if (window.location.hash && !window.location.hash.startsWith("#project/")) {
+      const el = document.querySelector(window.location.hash);
+      if (el) setTimeout(() => el.scrollIntoView({ behavior: "smooth" }), 0);
+    }
+  }, []);
 
   return (
     <div className="min-h-screen">
@@ -26,6 +36,7 @@ const Index = () => {
         <AboutSection />
         <ServicesSection />
         <ProjectsSection />
+        <FeedbackSection />
         <ContactSection />
       </main>
 
@@ -110,10 +121,26 @@ const Index = () => {
                 </li>
                 <li>
                   <button
+                    onClick={() => scrollToSection("#services")}
+                    className="hover:text-primary"
+                  >
+                    Dịch vụ
+                  </button>
+                </li>
+                <li>
+                  <button
                     onClick={() => scrollToSection("#projects")}
                     className="hover:text-primary"
                   >
                     Dự án
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => scrollToSection("#feedbacks")}
+                    className="hover:text-primary"
+                  >
+                    Nhận xét từ khách hàng
                   </button>
                 </li>
                 <li>

@@ -13,6 +13,7 @@ const TopNavigation = () => {
     { label: "Về chúng tôi", href: "#about" },
     { label: "Dịch vụ", href: "#services" },
     { label: "Dự án", href: "#projects" },
+    { label: "Nhận xét", href: "#feedbacks" },
     { label: "Liên hệ", href: "#contact" },
   ];
 
@@ -25,9 +26,13 @@ const TopNavigation = () => {
   }, []);
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    const isProjectDetail = window.location.hash.startsWith("#project/");
+    window.location.hash = href;
+    if (!isProjectDetail) {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
     }
     setIsMenuOpen(false);
   };
@@ -68,7 +73,7 @@ const TopNavigation = () => {
               <button
                 key={item.href}
                 onClick={() => scrollToSection(item.href)}
-                className="text-foreground hover:text-primary transition-colors font-medium"
+                className="text-foreground hover:underline decoration-primary underline-offset-4 decoration-2 hover:text-primary hover:decoration-4 transition-all font-semibold tracking-wide"
               >
                 {item.label}
               </button>
@@ -108,7 +113,7 @@ const TopNavigation = () => {
                 <button
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left px-4 py-2 text-foreground hover:text-primary hover:bg-muted/50 transition-colors font-medium"
+                  className="block w-full text-left px-4 py-2 text-foreground underline decoration-primary underline-offset-4 decoration-2 hover:text-primary hover:decoration-4 hover:bg-muted/50 transition-all font-semibold tracking-wide"
                 >
                   {item.label}
                 </button>

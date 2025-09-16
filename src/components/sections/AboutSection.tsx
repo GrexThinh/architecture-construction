@@ -54,13 +54,13 @@ const AboutSection = () => {
   return (
     <section id="about" className="py-10 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
-        <h3 className="text-center font-extrabold text-2xl sm:text-5xl drop-shadow-lg">
+        <h3 className="text-center font-extrabold text-4xl md:text-5xl drop-shadow-lg underline decoration-primary underline-offset-4 decoration-2">
           Về chúng tôi
         </h3>
 
         <StatsGrid />
 
-        <h2 className="text-center text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-4">
+        <h2 className="text-center text-4xl md:text-5xl font-bold tracking-tighter mb-4 underline decoration-primary underline-offset-4 decoration-2">
           Các loại công trình đã xây dựng
         </h2>
         {/* <p className="text-center text-muted-foreground text-lg mb-8">
@@ -68,7 +68,7 @@ const AboutSection = () => {
         </p> */}
         <div className="relative my-10">
           <Carousel
-            className="w-full max-w-6xl mx-auto"
+            className="w-full max-w-7xl mx-auto"
             opts={{ align: "start", loop: true }}
             plugins={[Autoplay({ delay: 3000, stopOnInteraction: true })]}
           >
