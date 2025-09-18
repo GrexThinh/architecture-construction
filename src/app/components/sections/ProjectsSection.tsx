@@ -1,0 +1,229 @@
+import React, { useState } from "react";
+import { Card } from "../ui/card";
+import { Button } from "../ui/button";
+import { Badge } from "../ui/badge";
+import Image from "next/image";
+
+export const projects = [
+  {
+    id: 1,
+    title: "Khu phức hợp văn phòng hiện đại",
+    category: "Thương mại",
+    location: "Khu trung tâm",
+    year: "2023",
+    team: "15 người",
+    image:
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=500&h=300&fit=crop",
+    description:
+      "Khu phức hợp văn phòng hiện đại với thiết kế bền vững và tiện nghi hiện đại.",
+  },
+  {
+    id: 2,
+    title: "Tòa nhà dân cư cao cấp",
+    category: "Dân cư",
+    location: "Khu vực ven biển",
+    year: "2023",
+    team: "20 người",
+    image:
+      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=500&h=300&fit=crop",
+    description:
+      "Tòa nhà dân cư cao cấp với tầm nhìn toàn cảnh thành phố và hoàn thiện cao cấp.",
+  },
+  {
+    id: 3,
+    title: "Trung tâm văn hóa",
+    category: "Công cộng",
+    location: "Trung tâm thành phố",
+    year: "2022",
+    team: "25 người",
+    image:
+      "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=500&h=300&fit=crop",
+    description:
+      "Trung tâm văn hóa đa mục đích thúc đẩy nghệ thuật và sự tham gia cộng đồng.",
+  },
+  {
+    id: 4,
+    title: "Nhà ở bền vững",
+    category: "Dân cư",
+    location: "Thung lũng xanh",
+    year: "2022",
+    team: "12 người",
+    image:
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=500&h=300&fit=crop",
+    description:
+      "Khu phát triển nhà ở thân thiện với môi trường với hệ thống năng lượng tái tạo.",
+  },
+  {
+    id: 5,
+    title: "Trung tâm thương mại",
+    category: "Thương mại",
+    location: "Quảng trường ngoại ô",
+    year: "2021",
+    team: "30 người",
+    image: "https://nhadepshouse.com/hinh-anh/quang-cao/trg-1720778380.webp",
+    description: "Điểm đến mua sắm hiện đại với không gian bán lẻ đổi mới.",
+  },
+  {
+    id: 6,
+    title: "Khu phức hợp văn phòng hiện đại",
+    category: "Thương mại",
+    location: "Khu trung tâm",
+    year: "2023",
+    team: "15 người",
+    image:
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=500&h=300&fit=crop",
+    description:
+      "Khu phức hợp văn phòng hiện đại với thiết kế bền vững và tiện nghi hiện đại.",
+  },
+  {
+    id: 7,
+    title: "Tòa nhà dân cư cao cấp",
+    category: "Dân cư",
+    location: "Khu vực ven biển",
+    year: "2023",
+    team: "20 người",
+    image:
+      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=500&h=300&fit=crop",
+    description:
+      "Tòa nhà dân cư cao cấp với tầm nhìn toàn cảnh thành phố và hoàn thiện cao cấp.",
+  },
+  {
+    id: 8,
+    title: "Trung tâm văn hóa",
+    category: "Công cộng",
+    location: "Trung tâm thành phố",
+    year: "2022",
+    team: "25 người",
+    image:
+      "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=500&h=300&fit=crop",
+    description:
+      "Trung tâm văn hóa đa mục đích thúc đẩy nghệ thuật và sự tham gia cộng đồng.",
+  },
+  {
+    id: 9,
+    title: "Nhà ở bền vững",
+    category: "Dân cư",
+    location: "Thung lũng xanh",
+    year: "2022",
+    team: "12 người",
+    image:
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=500&h=300&fit=crop",
+    description:
+      "Khu phát triển nhà ở thân thiện với môi trường với hệ thống năng lượng tái tạo.",
+  },
+  {
+    id: 10,
+    title: "Trung tâm thương mại",
+    category: "Thương mại",
+    location: "Quảng trường ngoại ô",
+    year: "2021",
+    team: "30 người",
+    image:
+      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=500&h=300&fit=crop",
+    description: "Điểm đến mua sắm hiện đại với không gian bán lẻ đổi mới.",
+  },
+];
+
+const ProjectsSection = () => {
+  const [filter, setFilter] = useState("Tất cả");
+
+  const categories = [
+    { value: "Tất cả", label: "Tất cả dự án" },
+    { value: "Dân cư", label: "Dân cư" },
+    { value: "Thương mại", label: "Thương mại" },
+    { value: "Công cộng", label: "Công cộng" },
+  ];
+
+  const filteredProjects =
+    filter === "Tất cả"
+      ? projects
+      : projects.filter((project) => project.category === filter);
+
+  return (
+    <section id="projects" className="py-16 md:py-24">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="text-center mb-12">
+          <h2 className="text-center font-extrabold text-4xl md:text-5xl mb-6 drop-shadow-lg underline decoration-primary underline-offset-4 decoration-2">
+            Dự án của chúng tôi
+          </h2>
+          {/* <p className="text-muted-foreground text-lg mb-8">
+            Khám phá loạt dự án kiến trúc và xây dựng đa dạng của chúng tôi
+          </p> */}
+
+          {/* Filter Buttons */}
+          <div className="flex flex-wrap gap-2 justify-center">
+            {categories.map((category) => (
+              <Button
+                key={category.value}
+                variant={filter === category.value ? "default" : "outline"}
+                onClick={() => setFilter(category.value)}
+                className="mb-2"
+              >
+                {category.label}
+              </Button>
+            ))}
+          </div>
+        </div>
+
+        {/* Projects Grid */}
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {filteredProjects.map((project) => (
+            <Card
+              key={project.id}
+              onClick={() => {
+                window.location.hash = `#project/${project.id}`;
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              className="group overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border-0 cursor-pointer"
+            >
+              <div className="relative p-2 bg-white border border-gray-300">
+                <div className="relative aspect-[4/5]">
+                  {(() => {
+                    const images = [project.image, project.image];
+                    return (
+                      <div className="absolute inset-0">
+                        <div className="absolute inset-0 translate-x-[-12px] translate-y-[12px] -rotate-2 p-2 bg-white border border-gray-300 rounded-sm shadow-sm">
+                          <img
+                            src={images[1]}
+                            alt=""
+                            className="h-full w-full object-cover rounded-[2px]"
+                          />
+                        </div>
+                        <div className="absolute inset-0 p-2 bg-white border border-gray-300 rounded-sm ring-1 ring-black/5 overflow-hidden">
+                          <img
+                            src={images[0]}
+                            alt={project.title}
+                            className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110 rounded-[2px]"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity rounded-sm"></div>
+                          <div className="absolute inset-0 flex items-end justify-center pb-6 px-4 text-center">
+                            <h3 className="text-white text-base sm:text-lg md:text-xl font-semibold tracking-wide leading-snug uppercase drop-shadow-md">
+                              {project.title}
+                            </h3>
+                          </div>
+                          <Badge className="absolute top-3 left-3 bg-primary text-primary-foreground rounded-sm">
+                            {project.category}
+                          </Badge>
+                        </div>
+                      </div>
+                    );
+                  })()}
+                </div>
+              </div>
+            </Card>
+          ))}
+        </div>
+
+        {filteredProjects.length === 0 && (
+          <div className="text-center py-12">
+            <p className="text-muted-foreground text-lg">
+              Không tìm thấy dự án nào cho danh mục đã chọn.
+            </p>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+};
+
+export default ProjectsSection;

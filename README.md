@@ -1,52 +1,36 @@
-# Your Layout project
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-This is codebase for your [Layout app](https://layout.dev/dashboard/projects/$PROJECT_ID).
+## Getting Started
 
+First, run the development server:
 
-# Installation
-
-You can always visit your [Layout app](https://layout.dev/dashboard/projects/$PROJECT_ID) and ask the Layout AI agent to handle the updates for you. However, if you'd prefer to update the app manually, follow these steps:
-
-```sh
-# 1. Clone the repo.
-git clone <$GIT_URL>
-
-# 2. Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# 3. Install the dependencies.
-npm install
-# You can use `bun install` but need to run `npm install -g bun` to install it first.
-
-# 4. Start the development server with auto-reloading and an instant preview.
+```bash
 npm run dev
-# You can use `bun run dev`
-
-# 5. On your browser navigate to http://localhost:5173/
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-**Edit a file directly in GitHub**
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-**Use GitHub Codespaces**
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Learn More
 
-## What technologies are used for this project?
+To learn more about Next.js, take a look at the following resources:
 
-This project is built with Vite, React, Shadcn, Tailwind CSS, React Router. For a complete list see `package.json`.
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-## How can I deploy this project?
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-Simply open [Layout app](https://layout.dev/projects/$PROJECT_ID) and publish the app from there.
+## Deploy on Vercel
 
-## I want to use a custom domain, is that possible?
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-We don't support custom domains yet.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
