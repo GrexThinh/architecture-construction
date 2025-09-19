@@ -1,18 +1,60 @@
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --primary: #dc2626; /* red-600 */
+  --secondary: #475569; /* slate-600 for light */
+}
 
-html:not(.dark) body {
+/* Support explicit theme via data-theme on html element */
+html[data-theme="light"] {
+  --background: #ffffff;
+  --foreground: #171717;
+  --primary: #dc2626;
+  --secondary: #475569;
+}
+
+html[data-theme="dark"] {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --primary: #ef4444; /* slightly brighter red-500 if needed */
+  --secondary: #ffffff; /* requirement: secondary text is white in dark */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --primary: #ef4444;
+    --secondary: #ffffff;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* html:not(.dark) body {
   background: url('/images/background.jpg') no-repeat center center fixed;
   background-size: cover;
-}
+} */
 
-.dark body {
+/* .dark body {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/background.jpg') no-repeat center center fixed;
   background-size: cover;
-}
+} */
 
 @keyframes shake {
 

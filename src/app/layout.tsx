@@ -1,49 +1,68 @@
 import type { Metadata } from "next";
-import { Oswald, Manrope } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "next-themes";
+import TopNavigation from "./components/TopNavigation";
 
-const oswald = Oswald({
+const geistSans = Geist({
+  variable: "--font-geist-sans",
   subsets: ["latin"],
-  variable: "--font-oswald",
-  weight: ["400", "500", "600", "700"],
 });
 
-const manrope = Manrope({
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
   subsets: ["latin"],
-  variable: "--font-manrope",
 });
 
 export const metadata: Metadata = {
-  title:
+  metadataBase: new URL(
+    "https://vercel.com/grex-projects/architecture-construction"
+  ),
+  title: {
+    default:
+      "CÔNG TY TNHH TƯ VẤN THIẾT KẾ XÂY DỰNG BÌNH KHANG - Binh Khang Company",
+    template:
+      "CÔNG TY TNHH TƯ VẤN THIẾT KẾ XÂY DỰNG BÌNH KHANG - Binh Khang Company",
+  },
+  description:
     "CÔNG TY TNHH TƯ VẤN THIẾT KẾ XÂY DỰNG BÌNH KHANG - Binh Khang Company",
-  description: "Thiết kế và xây dựng",
-  icons: {
-    icon: [
-      { url: "/images/logo.png", type: "image/png", sizes: "32x32" },
-      { url: "/images/logo.png", type: "image/png", sizes: "192x192" },
-      { url: "/images/logo.png", type: "image/png", sizes: "any" },
-    ],
-    shortcut: "/images/logo.png",
-    apple: "/images/logo.png",
+  keywords: [
+    "Binh Khang Company",
+    "Bình Khang",
+    "Xây dựng",
+    "Tư vấn",
+    "Thiết kế",
+    "Kiến trúc",
+  ],
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
-    <html
-      lang="vi"
-      className={`${oswald.variable} ${manrope.variable}`}
-      suppressHydrationWarning
-    >
-      <body>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          {children}
-        </ThemeProvider>
+    <html lang="en">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(() => { try { const t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t); } catch(_) {} })();`,
+          }}
+        />
+      </head>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <header>
+          <TopNavigation />
+        </header>
+        {children}
       </body>
     </html>
   );
