@@ -86,6 +86,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+
               <p className="text-muted-foreground text-sm">
                 Tạo ra những thiết kế kiến trúc và giải pháp xây dựng đặc biệt
                 từ năm 2020.
@@ -139,11 +140,13 @@ export default function Home() {
             </div>
             <div>
               <h4 className="font-semibold mb-4">Thông tin liên hệ</h4>
+              <h1 className="mt-0 text-sm mb-2">
+                CÔNG TY TNHH TƯ VẤN THIẾT KẾ XÂY DỰNG BÌNH KHANG
+              </h1>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>888/40 Lạc Long Quân</li>
-                <li>Phường Tân Hòa, TP. Hồ Chí Minh, Việt Nam</li>
-                <li>+84 832619515</li>
-                <li>info@archbuildpro.com</li>
+                <li>888/40 Lạc Long Quân, Phường Tân Hòa, TP. Hồ Chí Minh</li>
+                <li>SĐT: 0832619515</li>
+                <li>Email: info@archbuildpro.com</li>
               </ul>
             </div>
           </div>

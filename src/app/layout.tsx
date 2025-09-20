@@ -14,9 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    "https://vercel.com/grex-projects/architecture-construction"
-  ),
+  metadataBase: new URL("https://binhkhangxaydung.vercel.app"),
   title: {
     default:
       "CÔNG TY TNHH TƯ VẤN THIẾT KẾ XÂY DỰNG BÌNH KHANG - Binh Khang Company",
@@ -62,7 +60,7 @@ export default function RootLayout({
   "@type": "Organization",
   "name": "Architecture Construction",
   "url": "CÔNG TY TNHH TƯ VẤN THIẾT KẾ XÂY DỰNG BÌNH KHANG",
-  "logo": "https://architecture-construction.vercel.app/images/logo.jpg",
+  "logo": "https://binhkhangxaydung.vercel.app/images/logo.jpg",
   "description": "CÔNG TY TNHH TƯ VẤN THIẾT KẾ XÂY DỰNG BÌNH KHANG - Binh Khang Company",
   "foundingDate": "2020",
   "founders": [
