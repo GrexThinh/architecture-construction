@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://architecture-construction.vercel.app/',
+  siteUrl: 'https://binhkhangxaydung.vercel.app/',
   generateRobotsTxt: true, 
   sitemapSize: 7000,     
   changefreq: 'daily',

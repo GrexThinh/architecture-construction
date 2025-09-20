@@ -55,6 +55,43 @@ export default function RootLayout({
             __html: `(() => { try { const t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t); } catch(_) {} })();`,
           }}
         />
+        <script type="application/ld+json">
+          {`
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Architecture Construction",
+  "url": "CÔNG TY TNHH TƯ VẤN THIẾT KẾ XÂY DỰNG BÌNH KHANG",
+  "logo": "https://architecture-construction.vercel.app/images/logo.jpg",
+  "description": "CÔNG TY TNHH TƯ VẤN THIẾT KẾ XÂY DỰNG BÌNH KHANG - Binh Khang Company",
+  "foundingDate": "2020",
+  "founders": [
+    {
+      "@type": "Person",
+      "name": "Binh Khang"
+    }
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "0587030273",
+    "contactType": "customer service",
+    "areaServed": "VN",
+    "availableLanguage": ["Vietnamese", "English"]
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "888/40 Lạc Long Quân, Phường Tân Hòa",
+    "addressLocality": "TP. Hồ Chí Minh",
+    "addressRegion": "HCM",
+    "postalCode": "700000",
+    "addressCountry": "VN"
+  },
+  "sameAs": [
+    "https://www.facebook.com/grexthinh",
+  ]
+}
+`}
+        </script>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

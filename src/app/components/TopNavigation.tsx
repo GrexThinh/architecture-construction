@@ -10,7 +10,7 @@ const TopNavigation = () => {
     { label: "Về chúng tôi", href: "#about" },
     { label: "Dịch vụ", href: "#services" },
     { label: "Dự án", href: "#projects" },
-    { label: "Nhận xét", href: "#feedbacks" },
+    { label: "Đánh giá", href: "#feedbacks" },
     { label: "Liên hệ", href: "#contact" },
   ];
 
@@ -99,7 +99,9 @@ const TopNavigation = () => {
               <button
                 key={item.href}
                 onClick={() => scrollToSection(item.href)}
-                className="cursor-pointer text-foreground hover:underline decoration-primary underline-offset-4 decoration-2 text-primary hover:decoration-4 transition-all font-semibold tracking-wide"
+                className={`${
+                  isScrolled ? "text-primary" : "text-white"
+                } text-xl cursor-pointer text-foreground hover:underline decoration-primary underline-offset-8 decoration-2 hover:decoration-4 transition-all font-semibold tracking-wide`}
               >
                 {item.label}
               </button>
@@ -139,7 +141,7 @@ const TopNavigation = () => {
                 <button
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left px-4 py-2 text-foreground underline decoration-primary underline-offset-4 decoration-2 hover:text-primary hover:decoration-4 hover:bg-muted/50 transition-all font-semibold tracking-wide"
+                  className="block w-full text-left px-4 py-2 text-primary underline decoration-primary underline-offset-4 decoration-2 hover:text-primary hover:decoration-4 hover:bg-muted/50 transition-all font-semibold tracking-wide"
                 >
                   {item.label}
                 </button>

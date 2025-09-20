@@ -127,7 +127,7 @@ export default function Home() {
                 </li>
                 <li>
                   <a href="#feedbacks" className="hover:text-primary">
-                    Nhận xét từ khách hàng
+                    Đánh giá từ khách hàng
                   </a>
                 </li>
                 <li>

@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://architecture-construction.vercel.app/
+Host: https://binhkhangxaydung.vercel.app/
 
 # Sitemaps
-Sitemap: https://architecture-construction.vercel.app/sitemap.xml
+Sitemap: https://binhkhangxaydung.vercel.app/sitemap.xml
