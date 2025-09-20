@@ -56,7 +56,7 @@ export default function FeedbackPage() {
                 key={idx}
                 className="basis-full sm:basis-1/2 lg:basis-1/3 p-5"
               >
-                <Card className="h-full rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow border border-red-100">
+                <Card className="h-full rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow border border-stone-900">
                   <div className="flex items-center gap-4">
                     <div className="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-semibold">
                       {t.name.charAt(0)}

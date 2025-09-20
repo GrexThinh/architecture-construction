@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import FloatingContacts from "./components/float-contact";
 import { ArrowRight, Star } from "lucide-react";
 import Banner from "./components/banner";
@@ -6,9 +9,29 @@ import ServicesPage from "./services/page";
 import FeedbackPage from "./feedback/page";
 import ContactPage from "./contact/page";
 import ProjectsPage from "./projects/page";
+import ProjectDetail from "./projects/[id]/ProjectDetail";
 import Image from "next/image";
 
 export default function Home() {
+  const [hash, setHash] = useState("");
+
+  useEffect(() => {
+    // Set initial hash
+    setHash(window.location.hash);
+
+    // Listen for hash changes
+    const handleHashChange = () => {
+      setHash(window.location.hash);
+    };
+
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
+
+  // Show ProjectDetail if hash starts with #project/
+  if (hash.startsWith("#project/")) {
+    return <ProjectDetail />;
+  }
   return (
     <div className="min-h-screen">
       <main>

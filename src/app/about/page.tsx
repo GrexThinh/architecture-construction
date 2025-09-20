@@ -7,15 +7,16 @@ import {
 } from "../components/carousel";
 import { StatsGrid } from "../components/stats-grid";
 
-export const metadata = {
-  title: "About",
-  description: "About SolidBuild Co. — construction done right.",
-};
+// export const metadata = {
+//   title: "About",
+//   description:
+//     "CÔNG TY TNHH TƯ VẤN THIẾT KẾ XÂY DỰNG BÌNH KHANG - Binh Khang Company",
+// };
 
 export default function AboutPage() {
   const images = [
     {
-      title: "Công Trình Thực Tế",
+      title: "Thiết Kế Cảnh Quan",
       image: "https://nhadepshouse.com/hinh-anh/quang-cao/trg-1720778380.webp",
     },
     {
@@ -27,7 +28,7 @@ export default function AboutPage() {
       image: "https://nhadepshouse.com/hinh-anh/quang-cao/trg-1710228304.webp",
     },
     {
-      title: "Thi Công Xây Dựng",
+      title: "Thiết Kế Điện Nước",
       image: "https://nhadepshouse.com/hinh-anh/quang-cao/trg-1720777296.webp",
     },
   ];
@@ -40,7 +41,7 @@ export default function AboutPage() {
       <StatsGrid />
 
       <h2 className="text-center text-4xl md:text-5xl font-bold tracking-tighter mb-4 underline decoration-primary underline-offset-4 decoration-2">
-        Các loại công trình đã xây dựng
+        Các loại thiết kế đã xây dựng
       </h2>
       <div className="relative my-10">
         <ClientCarousel
@@ -67,12 +68,9 @@ export default function AboutPage() {
                     className="rounded-lg shadow-2xl w-full h-[400px] object-cover cursor-pointer transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-black/20 rounded-lg transition duration-300 group-hover:bg-black/10" />
-                  <h3 className="text-center text-xl font-bold text-white absolute bottom-16 left-0 right-0 p-4">
+                  <h3 className="text-center text-xl font-bold text-white absolute bottom-5 left-0 right-0 p-4">
                     {proj.title}
                   </h3>
-                  <button className="text-white absolute bottom-2 left-1/2 -translate-x-1/2 px-4 py-2 bg-primary rounded-lg transition-transform duration-300 group-hover:scale-105">
-                    Xem chi tiết
-                  </button>
                 </div>
               </CarouselItem>
             ))}

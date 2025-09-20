@@ -16,16 +16,40 @@ import {
   CarouselPrevious,
 } from "../components/carousel";
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "../components/button";
 
-export const metadata = {
-  title: "Services",
-  description: "Construction and engineering services by SolidBuild Co.",
-};
+// export const metadata = {
+//   title: "Services",
+//   description: "Construction and engineering services by SolidBuild Co.",
+// };
 
 export default function ServicesPage() {
   const services = [
     {
+      id: "residential-construction",
+      icon: Home,
+      title: "Dự án dân cư",
+      description: "Dịch vụ thiết kế và xây dựng nhà ở tùy chỉnh.",
+      features: ["Nhà ở tùy chỉnh", "Cải tạo", "Mở rộng", "Tích hợp cảnh quan"],
+      image:
+        "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=500&h=300&fit=crop",
+    },
+    {
+      id: "commercial-construction",
+      icon: Building,
+      title: "Dự án thương mại",
+      description: "Giải pháp xây dựng thương mại và công nghiệp.",
+      features: [
+        "Tòa nhà văn phòng",
+        "Không gian bán lẻ",
+        "Kho bãi",
+        "Phát triển đa mục đích",
+      ],
+      image: "https://nhadepshouse.com/hinh-anh/quang-cao/trg-1720778380.webp",
+    },
+    {
+      id: "architectural-design",
       icon: PenTool,
       title: "Thiết kế kiến trúc",
       description:
@@ -40,6 +64,7 @@ export default function ServicesPage() {
         "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=500&h=300&fit=crop",
     },
     {
+      id: "construction-management",
       icon: Hammer,
       title: "Quản lý xây dựng",
       description:
@@ -54,6 +79,7 @@ export default function ServicesPage() {
         "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=500&h=300&fit=crop",
     },
     {
+      id: "structural-engineering",
       icon: Building2,
       title: "Kỹ thuật kết cấu",
       description:
@@ -68,6 +94,7 @@ export default function ServicesPage() {
         "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=500&h=300&fit=crop",
     },
     {
+      id: "project-planning",
       icon: Cog,
       title: "Lập kế hoạch dự án",
       description: "Lập kế hoạch dự án toàn diện và nghiên cứu khả thi.",
@@ -79,26 +106,6 @@ export default function ServicesPage() {
       ],
       image:
         "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=500&h=300&fit=crop",
-    },
-    {
-      icon: Home,
-      title: "Dự án dân cư",
-      description: "Dịch vụ thiết kế và xây dựng nhà ở tùy chỉnh.",
-      features: ["Nhà ở tùy chỉnh", "Cải tạo", "Mở rộng", "Tích hợp cảnh quan"],
-      image:
-        "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=500&h=300&fit=crop",
-    },
-    {
-      icon: Building,
-      title: "Dự án thương mại",
-      description: "Giải pháp xây dựng thương mại và công nghiệp.",
-      features: [
-        "Tòa nhà văn phòng",
-        "Không gian bán lẻ",
-        "Kho bãi",
-        "Phát triển đa mục đích",
-      ],
-      image: "https://nhadepshouse.com/hinh-anh/quang-cao/trg-1720778380.webp",
     },
   ];
 
@@ -187,9 +194,11 @@ export default function ServicesPage() {
                       ))}
                     </ul>
 
-                    <Button className="mt-10 inline-flex items-center px-5 py-3 rounded-xl bg-primary font-semibold transition-transform duration-300 hover:scale-[1.03] focus:outline-none">
-                      Xem chi tiết
-                    </Button>
+                    <Link href={`/services/${service.id}`}>
+                      <Button className="mt-10 inline-flex items-center px-5 py-3 rounded-xl bg-primary font-semibold transition-transform duration-300 hover:scale-[1.03] focus:outline-none">
+                        Xem chi tiết
+                      </Button>
+                    </Link>
                   </div>
                   <div className="relative min-h-[260px] md:min-h-[420px]">
                     <Image
@@ -225,7 +234,7 @@ export default function ServicesPage() {
 
             <a
               href={"#"}
-              className="group inset-0 flex h-full flex-col rounded-lg border border-red-100 bg-card/50 shadow-sm overflow-hidden transition-shadow hover:shadow-lg relative"
+              className="group inset-0 flex h-full flex-col rounded-lg border border-stone-900 bg-card/50 shadow-sm overflow-hidden transition-shadow hover:shadow-lg relative"
             >
               <span className="absolute top-0 left-0 z-20 flex h-10 w-10 items-center justify-center bg-primary text-white font-bold shadow-md">
                 {cs.step}

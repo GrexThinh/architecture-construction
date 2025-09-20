@@ -3,15 +3,20 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X, Sun, Moon, Star } from "lucide-react";
 import { Button } from "./button";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const TopNavigation = () => {
+  const pathname = usePathname();
+  const isMainPage = pathname === "/";
+
   const navItems = [
-    { label: "Trang chủ", href: "#home" },
-    { label: "Về chúng tôi", href: "#about" },
-    { label: "Dịch vụ", href: "#services" },
-    { label: "Dự án", href: "#projects" },
-    { label: "Đánh giá", href: "#feedbacks" },
-    { label: "Liên hệ", href: "#contact" },
+    { label: "Trang chủ", href: isMainPage ? "#home" : "/" },
+    { label: "Về chúng tôi", href: isMainPage ? "#about" : "/#about" },
+    { label: "Dịch vụ", href: isMainPage ? "#services" : "/#services" },
+    { label: "Dự án", href: isMainPage ? "#projects" : "/#projects" },
+    { label: "Đánh giá", href: isMainPage ? "#feedbacks" : "/#feedbacks" },
+    { label: "Liên hệ", href: isMainPage ? "#contact" : "/#contact" },
   ];
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -45,20 +50,25 @@ const TopNavigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (href: string) => {
-    if (href === "#home") {
-      // Scroll to top for home
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      window.location.hash = "";
-    } else {
-      const isProjectDetail = window.location.hash.startsWith("#project/");
-      window.location.hash = href;
-      if (!isProjectDetail) {
-        const element = document.querySelector(href);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
+  const handleNavigation = (href: string) => {
+    if (isMainPage) {
+      // On main page, use hash-based scrolling
+      if (href === "#home") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        window.location.hash = "";
+      } else {
+        const isProjectDetail = window.location.hash.startsWith("#project/");
+        window.location.hash = href;
+        if (!isProjectDetail) {
+          const element = document.querySelector(href);
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+          }
         }
       }
+    } else {
+      // On other pages, navigate to main page with hash
+      window.location.href = href;
     }
     setIsMenuOpen(false);
   };
@@ -77,7 +87,7 @@ const TopNavigation = () => {
           <div className="flex items-center gap-3">
             <img src="/images/logo.jpg" alt="logo" className="w-12" />
             <div>
-              <h1 className="text-xl font-bold text-primary">
+              <h1 className="text-base font-bold text-primary">
                 Binh Khang Company
               </h1>
               <div className="flex gap-1">
@@ -98,7 +108,7 @@ const TopNavigation = () => {
             {navItems.map((item) => (
               <button
                 key={item.href}
-                onClick={() => scrollToSection(item.href)}
+                onClick={() => handleNavigation(item.href)}
                 className={`${
                   isScrolled ? "text-primary" : "text-white"
                 } text-xl cursor-pointer text-foreground hover:underline decoration-primary underline-offset-8 decoration-2 hover:decoration-4 transition-all font-semibold tracking-wide`}
@@ -140,7 +150,7 @@ const TopNavigation = () => {
               {navItems.map((item) => (
                 <button
                   key={item.href}
-                  onClick={() => scrollToSection(item.href)}
+                  onClick={() => handleNavigation(item.href)}
                   className="block w-full text-left px-4 py-2 text-primary underline decoration-primary underline-offset-4 decoration-2 hover:text-primary hover:decoration-4 hover:bg-muted/50 transition-all font-semibold tracking-wide"
                 >
                   {item.label}
