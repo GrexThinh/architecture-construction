@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://architecture-construction.vercel.app/
+
+# Sitemaps
+Sitemap: https://architecture-construction.vercel.app/sitemap.xml
