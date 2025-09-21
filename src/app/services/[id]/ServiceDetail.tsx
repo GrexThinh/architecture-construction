@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { ArrowLeft, CheckCircle, Phone, Mail } from "lucide-react";
 import { Button } from "@/app/components/button";
@@ -6,14 +8,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 interface ServiceDetailProps {
-  params: {
-    id: string;
-  };
+  id: string; // <- simpler, no nested params
 }
 
-const ServiceDetail = ({ params }: ServiceDetailProps) => {
-  const { id } = params;
-
+const ServiceDetail: React.FC<ServiceDetailProps> = ({ id }) => {
   const serviceDetails: Record<
     string,
     {
@@ -212,15 +210,15 @@ const ServiceDetail = ({ params }: ServiceDetailProps) => {
     },
   };
 
-  const service = serviceDetails[id || ""];
+  const service = serviceDetails[id];
 
   if (!service) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold mb-4">Service Not Found</h1>
+          <h1 className="text-2xl font-bold mb-4">Không tìm thấy dịch vụ</h1>
           <Link href="/services">
-            <Button>Back to Services</Button>
+            <Button>Quay lại dịch vụ</Button>
           </Link>
         </div>
       </div>
@@ -230,24 +228,30 @@ const ServiceDetail = ({ params }: ServiceDetailProps) => {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-96 overflow-hidden">
+      <section
+        className="relative h-[320px] sm:h-[380px] md:h-[420px] lg:h-[480px] overflow-hidden"
+        aria-label={`Hình ảnh dịch vụ ${service.title}`}
+      >
         <Image
           src={service.image}
           alt={service.title}
           fill
+          priority
+          sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/40"></div>
-        <div className="absolute inset-0 flex items-center">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/35 to-black/60" />
+        <div className="absolute inset-0 flex items-end">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-8">
             <Link
               href="/services"
-              className="inline-flex items-center text-white mb-4 hover:text-primary transition-colors"
+              className="inline-flex items-center text-white/95 mb-4 rounded-lg bg-primary/90 hover:bg-primary px-3 py-2 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+              aria-label="Quay lại danh sách dịch vụ"
             >
-              <ArrowLeft size={20} className="mr-2" />
-              Back to Services
+              <ArrowLeft size={18} className="mr-2" />
+              Quay lại dịch vụ
             </Link>
-            <h1 className="text-5xl font-bold text-white mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white drop-shadow-md">
               {service.title}
             </h1>
           </div>
@@ -255,90 +259,121 @@ const ServiceDetail = ({ params }: ServiceDetailProps) => {
       </section>
 
       {/* Service Details */}
-      <section className="py-16">
+      <section className="py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
             {/* Main Content */}
-            <div className="lg:col-span-2">
-              <div className="prose max-w-none">
-                <h2 className="text-3xl font-bold mb-6">Service Overview</h2>
-                <p className="text-lg text-gray-700 mb-8">
+            <article className="lg:col-span-2">
+              <header className="mb-8">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-4">
+                  Tổng quan dịch vụ
+                </h2>
+                <p className="text-base sm:text-lg text-muted-foreground">
                   {service.description}
                 </p>
+              </header>
 
-                <h3 className="text-2xl font-semibold mb-4">
-                  Our Services Include
+              {/* Services list */}
+              <section className="mb-10">
+                <h3 className="text-xl sm:text-2xl font-semibold mb-4">
+                  Dịch vụ của chúng tôi bao gồm
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                  {service.services.map((item: string, index: number) => (
-                    <div key={index} className="flex items-center space-x-3">
-                      <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
-                      <span className="text-gray-700">{item}</span>
-                    </div>
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+                  {service.services.map((item, index) => (
+                    <li
+                      key={index}
+                      className="flex items-start gap-3 rounded-lg border border-border/60 bg-card/60 px-3 py-2.5"
+                    >
+                      <CheckCircle className="h-5 w-5 mt-0.5 text-primary flex-shrink-0" />
+                      <span className="text-foreground/90">{item}</span>
+                    </li>
                   ))}
-                </div>
+                </ul>
+              </section>
 
-                <h3 className="text-2xl font-semibold mb-4">Our Process</h3>
-                <div className="space-y-4 mb-8">
-                  {service.process.map((step: string, index: number) => (
-                    <div key={index} className="flex items-start space-x-4">
-                      <div className="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold flex-shrink-0">
+              {/* Process timeline */}
+              <section className="mb-10">
+                <h3 className="text-xl sm:text-2xl font-semibold mb-4">
+                  Quy trình thực hiện
+                </h3>
+                <ol className="relative border-s border-border/60 ps-4 sm:ps-6 space-y-5">
+                  {service.process.map((step, index) => (
+                    <li key={index} className="ms-2 sm:ms-3">
+                      <div className="absolute -start-3 sm:-start-3 mt-1.5 h-6 w-6 rounded-full bg-primary text-white text-xs font-bold grid place-items-center ring-2 ring-primary/30">
                         {index + 1}
                       </div>
-                      <span className="text-gray-700 pt-1">{step}</span>
-                    </div>
+                      <p className="text-foreground/90">{step}</p>
+                    </li>
                   ))}
-                </div>
+                </ol>
+              </section>
 
-                <h3 className="text-2xl font-semibold mb-4">Why Choose Us</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {service.benefits.map((benefit: string, index: number) => (
-                    <div key={index} className="flex items-center space-x-3">
-                      <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
-                      <span className="text-gray-700">{benefit}</span>
-                    </div>
+              {/* Benefits grid */}
+              <section>
+                <h3 className="text-xl sm:text-2xl font-semibold mb-4">
+                  Tại sao chọn chúng tôi
+                </h3>
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+                  {service.benefits.map((benefit, index) => (
+                    <li
+                      key={index}
+                      className="flex items-start gap-3 rounded-lg border border-emerald-500/20 bg-emerald-500/5 px-3 py-2.5"
+                    >
+                      <CheckCircle className="h-5 w-5 mt-0.5 text-emerald-500 flex-shrink-0" />
+                      <span className="text-foreground/90">{benefit}</span>
+                    </li>
                   ))}
-                </div>
-              </div>
-            </div>
+                </ul>
+              </section>
+            </article>
 
             {/* Sidebar */}
-            <div className="lg:col-span-1">
-              <Card className="sticky top-8">
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-4">
-                    Get Started Today
+            <aside className="lg:col-span-1">
+              <Card className="sticky top-6">
+                <CardContent className="p-5 sm:p-6">
+                  <h3 className="text-lg sm:text-xl font-semibold mb-3">
+                    Bắt đầu ngay hôm nay
                   </h3>
-                  <p className="text-gray-600 mb-6">
-                    Ready to discuss your project? Contact us for a free
-                    consultation and detailed quote.
+                  <p className="text-sm sm:text-base text-muted-foreground mb-5">
+                    Sẵn sàng thảo luận về dự án của bạn? Liên hệ với chúng tôi
+                    để được tư vấn miễn phí và báo giá chi tiết.
                   </p>
 
-                  <div className="space-y-4 mb-6">
-                    <div className="flex items-center space-x-3">
+                  <div className="space-y-3 sm:space-y-4 mb-5">
+                    <div className="flex items-center gap-3">
                       <Phone className="h-5 w-5 text-primary" />
-                      <span className="text-gray-700">+1 (555) 123-4567</span>
+                      <a
+                        href="tel:0587030273"
+                        className="text-foreground/90 hover:underline"
+                      >
+                        0587 030 273
+                      </a>
                     </div>
-                    <div className="flex items-center space-x-3">
+                    <div className="flex items-center gap-3">
                       <Mail className="h-5 w-5 text-primary" />
-                      <span className="text-gray-700">info@buildcraft.com</span>
+                      <a
+                        href="mailto:info@buildcraft.com"
+                        className="text-foreground/90 hover:underline"
+                      >
+                        info@buildcraft.com
+                      </a>
                     </div>
                   </div>
 
                   <Link href="/contact">
-                    <Button className="w-full bg-primary hover:bg-primary/90 mb-4">
-                      Get Free Quote
+                    <Button className="w-full bg-primary hover:bg-primary/90 mb-3">
+                      Nhận báo giá miễn phí
                     </Button>
                   </Link>
 
                   <Link href="/projects">
                     <Button variant="outline" className="w-full">
-                      View Our Work
+                      Xem dự án của chúng tôi
                     </Button>
                   </Link>
                 </CardContent>
               </Card>
-            </div>
+            </aside>
           </div>
         </div>
       </section>

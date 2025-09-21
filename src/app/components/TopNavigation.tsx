@@ -75,10 +75,8 @@ const TopNavigation = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-background/95 backdrop-blur-md"
-          : "bg-transparent backdrop-blur-md"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md ${
+        isScrolled ? "bg-background/95" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 md:px-6">
@@ -88,7 +86,7 @@ const TopNavigation = () => {
             <img src="/images/logo.jpg" alt="logo" className="w-12" />
             <div>
               <h1 className="text-base font-bold text-primary">
-                Binh Khang Company
+                CÔNG TY XÂY DỰNG BÌNH KHANG
               </h1>
               <div className="flex gap-1">
                 {Array.from({ length: 5 }).map((_, index) => (
@@ -96,7 +94,7 @@ const TopNavigation = () => {
                     key={index}
                     className="text-yellow-500 inline-block"
                     fill="currentColor"
-                    size={20}
+                    size={18}
                   />
                 ))}
               </div>
@@ -111,7 +109,7 @@ const TopNavigation = () => {
                 onClick={() => handleNavigation(item.href)}
                 className={`${
                   isScrolled ? "text-primary" : "text-white"
-                } text-xl cursor-pointer text-foreground hover:underline decoration-primary underline-offset-8 decoration-2 hover:decoration-4 transition-all font-semibold tracking-wide`}
+                } text-base cursor-pointer text-foreground hover:underline decoration-primary underline-offset-8 decoration-2 hover:decoration-4 transition-all font-semibold tracking-wide`}
               >
                 {item.label}
               </button>

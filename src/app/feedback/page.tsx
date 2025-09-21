@@ -11,25 +11,32 @@ import { Card } from "../components/card";
 export default function FeedbackPage() {
   const testimonials = [
     {
-      name: "Nguyễn Văn A",
+      name: "Nguyễn Ngọc Bảo",
       role: "Chủ nhà, Quận 7",
       rating: 5,
       quote:
         "Đội ngũ làm việc rất chuyên nghiệp, đúng tiến độ và chất lượng tuyệt vời. Tôi rất hài lòng với công trình hoàn thiện.",
     },
     {
-      name: "Trần Thị B",
+      name: "Trần Thị Thanh Nga",
       role: "Giám đốc vận hành",
       rating: 5,
       quote:
         "Thiết kế sáng tạo, thi công tỉ mỉ. Trải nghiệm làm việc xuyên suốt dự án rất mượt mà và rõ ràng.",
     },
     {
-      name: "Lê Quốc C",
+      name: "Lê Quốc Hùng",
       role: "Chủ đầu tư",
       rating: 4,
       quote:
         "Tư vấn tận tâm, báo cáo tiến độ minh bạch. Kết quả cuối cùng vượt mong đợi của chúng tôi.",
+    },
+    {
+      name: "Phạm Thị Minh",
+      role: "Kiến trúc sư",
+      rating: 5,
+      quote:
+        "Quy trình làm việc chuyên nghiệp, đội ngũ hỗ trợ nhiệt tình và sáng tạo trong từng chi tiết thiết kế.",
     },
   ];
   return (
@@ -47,7 +54,7 @@ export default function FeedbackPage() {
         <ClientCarousel
           className="w-full max-w-6xl mx-auto"
           opts={{ align: "start", loop: true }}
-          autoplayDelay={3500}
+          autoplayDelay={3000}
           autoplayStopOnInteraction
         >
           <CarouselContent>

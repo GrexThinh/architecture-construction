@@ -36,6 +36,18 @@ const sampleMedia: MediaItem[] = [
     type: "image",
     src: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1600",
   },
+  {
+    type: "image",
+    src: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1600",
+  },
+  {
+    type: "image",
+    src: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=1600",
+  },
+  {
+    type: "video",
+    src: "https://www.w3schools.com/html/mov_bbb.mp4",
+  },
 ];
 
 const ProjectDetail = () => {

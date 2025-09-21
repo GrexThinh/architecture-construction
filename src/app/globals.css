@@ -46,15 +46,15 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* html:not(.dark) body {
+html[data-theme="light"] body {
   background: url('/images/background.jpg') no-repeat center center fixed;
   background-size: cover;
-} */
+}
 
-/* .dark body {
+.dark body {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/background.jpg') no-repeat center center fixed;
   background-size: cover;
-} */
+}
 
 @keyframes shake {
 

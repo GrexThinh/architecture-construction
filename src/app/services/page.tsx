@@ -18,6 +18,12 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../components/button";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "../components/accordion";
 
 // export const metadata = {
 //   title: "Services",
@@ -115,40 +121,55 @@ export default function ServicesPage() {
       title: "Tư vấn",
       description:
         "Cuộc họp ban đầu để hiểu tầm nhìn, yêu cầu và ngân sách của bạn.",
-      image:
+      images: [
         "https://cdn.vietnambiz.vn/2019/12/1/photo-1-1575201255304457023286.jpg",
+        "https://blogcdn.muaban.net/wp-content/uploads/2022/05/09132110/9-ky-su-xay-dung.jpg",
+        "https://cdn2.fptshop.com.vn/unsafe/1920x0/filters:format(webp):quality(75)/2024_1_6_638401392840796085_nganh-xay-dung-0.jpg",
+      ],
     },
     {
       step: "2",
       title: "Phát triển thiết kế",
       description:
         "Tạo ra các thiết kế chi tiết và trực quan hóa 3D để bạn phê duyệt.",
-      image:
+      images: [
+        "https://cdn.vietnambiz.vn/2019/12/1/photo-1-1575201255304457023286.jpg",
         "https://blogcdn.muaban.net/wp-content/uploads/2022/05/09132110/9-ky-su-xay-dung.jpg",
+        "https://cdn2.fptshop.com.vn/unsafe/1920x0/filters:format(webp):quality(75)/2024_1_6_638401392840796085_nganh-xay-dung-0.jpg",
+      ],
     },
     {
       step: "3",
       title: "Lập kế hoạch, giấy phép",
       description:
         "Xử lý tất cả các giấy phép cần thiết và phê duyệt quy định.",
-      image:
+      images: [
         "https://cdn.vietnambiz.vn/2019/12/1/photo-1-1575201255304457023286.jpg",
+        "https://blogcdn.muaban.net/wp-content/uploads/2022/05/09132110/9-ky-su-xay-dung.jpg",
+        "https://cdn2.fptshop.com.vn/unsafe/1920x0/filters:format(webp):quality(75)/2024_1_6_638401392840796085_nganh-xay-dung-0.jpg",
+      ],
     },
     {
       step: "4",
       title: "Xây dựng",
       description:
         "Quản lý xây dựng chuyên nghiệp từ khởi công đến hoàn thành.",
-      image:
+      images: [
+        "https://cdn.vietnambiz.vn/2019/12/1/photo-1-1575201255304457023286.jpg",
         "https://blogcdn.muaban.net/wp-content/uploads/2022/05/09132110/9-ky-su-xay-dung.jpg",
+        "https://cdn2.fptshop.com.vn/unsafe/1920x0/filters:format(webp):quality(75)/2024_1_6_638401392840796085_nganh-xay-dung-0.jpg",
+      ],
     },
     {
       step: "5",
       title: "Bàn giao",
       description:
         "Kiểm tra cuối cùng và bàn giao dự án đã hoàn thành của bạn.",
-      image:
+      images: [
+        "https://cdn.vietnambiz.vn/2019/12/1/photo-1-1575201255304457023286.jpg",
+        "https://blogcdn.muaban.net/wp-content/uploads/2022/05/09132110/9-ky-su-xay-dung.jpg",
         "https://cdn2.fptshop.com.vn/unsafe/1920x0/filters:format(webp):quality(75)/2024_1_6_638401392840796085_nganh-xay-dung-0.jpg",
+      ],
     },
   ];
 
@@ -216,52 +237,113 @@ export default function ServicesPage() {
           <CarouselNext />
         </ClientCarousel>
       </div>
-
       {/* Process Section */}
-      <div className="text-center mb-12">
-        <h3 className="text-4xl md:text-5xl font-bold tracking-tighter mb-4 underline decoration-primary underline-offset-4 decoration-2">
-          Quy trình của chúng tôi
-        </h3>
-      </div>
-      <div className="grid md:grid-cols-5 items-stretch relative justify-self-center gap-10">
-        {process.map((cs, i) => (
-          <div key={i} className="relative flex h-full md:w-[250px] flex-col">
-            {i < process.length - 1 && (
-              <div className="hidden md:block absolute top-1/2 right-[-20px] -translate-y-1/2 translate-x-1/2 z-10 bg-primary rounded-xl p-1">
-                <ArrowRight className="h-4 w-4 text-zinc-50" />
-              </div>
-            )}
+      <div className="mx-auto mt-16 max-w-5xl px-2 sm:px-4">
+        <div className="text-center mb-8 sm:mb-12">
+          <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight underline decoration-primary underline-offset-4 decoration-2">
+            Quy trình của chúng tôi
+          </h3>
+        </div>
 
-            <a
-              href={"#"}
-              className="group inset-0 flex h-full flex-col rounded-lg border border-stone-900 bg-card/50 shadow-sm overflow-hidden transition-shadow hover:shadow-lg relative"
-            >
-              <span className="absolute top-0 left-0 z-20 flex h-10 w-10 items-center justify-center bg-primary text-white font-bold shadow-md">
-                {cs.step}
-              </span>
+        <Accordion
+          type="single"
+          collapsible
+          defaultValue="item-0"
+          className="space-y-3 sm:space-y-4"
+        >
+          {process.map((cs, i) => {
+            const imageList = Array.isArray(cs.images)
+              ? cs.images
+              : cs.images
+              ? [cs.images]
+              : [];
 
-              <div className="space-y-4 p-3 flex-1 mt-10">
-                <h3 className="text-lg font-semibold leading-snug">
-                  {cs.title}
-                </h3>
+            return (
+              <AccordionItem
+                key={i}
+                value={`item-${i}`}
+                className="group rounded-xl border border-border/70 bg-card/60 backdrop-blur-sm shadow-sm transition-all
+                   hover:shadow-md focus-within:border-primary"
+              >
+                <AccordionTrigger
+                  className="group flex w-full items-center gap-4 px-4 sm:px-6 py-4 sm:py-5 text-left
+                     transition-colors hover:bg-muted/40 rounded-xl hover:no-underline cursor-pointer focus-visible:outline-none"
+                >
+                  {/* Step badge */}
+                  <span
+                    className="inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full
+                           bg-primary text-white text-sm sm:text-base font-bold shadow ring-1 ring-primary/40 flex-shrink-0"
+                  >
+                    {cs.step}
+                  </span>
 
-                <p className="text-sm text-muted-foreground">
-                  {cs.description}
-                </p>
-              </div>
+                  {/* Title + tiny description preview on wide screens */}
+                  <span className="flex-1 min-w-0">
+                    <span className="block text-base sm:text-lg md:text-xl font-semibold leading-snug truncate">
+                      {cs.title}
+                    </span>
+                    <span className="hidden sm:block text-sm text-muted-foreground mt-0.5 line-clamp-1">
+                      {cs.description}
+                    </span>
+                  </span>
 
-              <div className="relative h-40 w-full">
-                <Image
-                  src={cs.image}
-                  alt={cs.title}
-                  fill
-                  className="object-cover"
-                />
-                <div className="pointer-events-none absolute inset-0 ring-1 ring-black/5" />
-              </div>
-            </a>
-          </div>
-        ))}
+                  {/* Rotating arrow */}
+                  <ArrowRight
+                    className="h-5 w-5 flex-shrink-0 transition-transform duration-300 group-data-[state=open]:rotate-90"
+                    aria-hidden="true"
+                  />
+                </AccordionTrigger>
+
+                <AccordionContent className="px-4 sm:px-6 pb-4 sm:pb-6">
+                  <div className="flex flex-col gap-4 md:gap-6">
+                    {/* text */}
+                    <p className="text-sm sm:text-base text-muted-foreground">
+                      {cs.description}
+                    </p>
+
+                    {/* gallery (1 hoặc nhiều ảnh) */}
+                    {imageList.length > 0 && (
+                      <div
+                        className={
+                          imageList.length === 1
+                            ? "relative w-full md:w-48 lg:w-56 h-36 sm:h-40 md:h-32 lg:h-36 overflow-hidden rounded-lg ring-1 ring-border/60"
+                            : "grid grid-cols-2 sm:grid-cols-3 gap-3"
+                        }
+                      >
+                        {imageList.length === 1 ? (
+                          <Image
+                            src={imageList[0]}
+                            alt={cs.title}
+                            fill
+                            sizes="(max-width: 768px) 100vw, 220px"
+                            className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                            priority={i === 0}
+                          />
+                        ) : (
+                          imageList.map((img, idx) => (
+                            <div
+                              key={idx}
+                              className="relative h-28 sm:h-32 md:h-36 overflow-hidden rounded-lg ring-1 ring-border/60"
+                            >
+                              <Image
+                                src={img}
+                                alt={`${cs.title} - ${idx + 1}`}
+                                fill
+                                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 220px"
+                                className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                                priority={i === 0 && idx < 2}
+                              />
+                            </div>
+                          ))
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            );
+          })}
+        </Accordion>
       </div>
     </div>
   );
