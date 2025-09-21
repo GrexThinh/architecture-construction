@@ -43,16 +43,13 @@ const TopNavigation = () => {
   }
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleNavigation = (href: string) => {
     if (isMainPage) {
-      // On main page, use hash-based scrolling
       if (href === "#home") {
         window.scrollTo({ top: 0, behavior: "smooth" });
         window.location.hash = "";
@@ -61,13 +58,10 @@ const TopNavigation = () => {
         window.location.hash = href;
         if (!isProjectDetail) {
           const element = document.querySelector(href);
-          if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
-          }
+          if (element) element.scrollIntoView({ behavior: "smooth" });
         }
       }
     } else {
-      // On other pages, navigate to main page with hash
       window.location.href = href;
     }
     setIsMenuOpen(false);
@@ -75,88 +69,185 @@ const TopNavigation = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md ${
-        isScrolled ? "bg-background/95" : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? "bg-background/95 backdrop-blur-md" : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <div className="flex items-center gap-3">
-            <img src="/images/logo.jpg" alt="logo" className="w-12" />
-            <div>
-              <h1 className="text-xs md:text-base font-bold text-primary">
-                CÔNG TY TNHH XÂY DỰNG BÌNH KHANG
-              </h1>
-              <div className="flex gap-1">
-                {Array.from({ length: 5 }).map((_, index) => (
-                  <Star
-                    key={index}
-                    className="text-yellow-500 inline-block"
-                    fill="currentColor"
-                    size={18}
+      {/* ===== MOBILE HEADER (default) ===== */}
+      <div className="md:hidden">
+        {/* Row 1: brand on black */}
+        <div className="bg-black text-white">
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="flex items-center justify-center gap-3 py-2">
+              <img
+                src="/images/logo.jpg"
+                alt="logo"
+                className="w-10 h-10 object-cover rounded-sm"
+              />
+              <div>
+                <h1 className="font-bold text-primary text-sm leading-tight">
+                  <span className="block">CÔNG TY XÂY DỰNG BÌNH KHANG</span>
+                </h1>
+                <div className="flex gap-1 mt-1">
+                  {Array.from({ length: 5 }).map((_, index) => (
+                    <Star
+                      key={index}
+                      className="text-yellow-500 inline-block"
+                      fill="currentColor"
+                      size={14}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Row 2: menu left, languages + theme right */}
+        <div className="bg-zinc-100 text-zinc-900 border-b">
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="flex items-center justify-between py-2">
+              {/* Menu button (opens full mobile nav below) */}
+              <button
+                type="button"
+                aria-label="Mở menu"
+                className="inline-flex items-center gap-2 text-sm font-semibold"
+                onClick={() => setIsMenuOpen((s) => !s)}
+              >
+                {isMenuOpen ? (
+                  <X className="h-5 w-5" />
+                ) : (
+                  <Menu className="h-5 w-5" />
+                )}
+                <span>Menu</span>
+              </button>
+
+              {/* Flags + Theme toggle (keep your toggle UX) */}
+              <div className="flex items-center gap-2">
+                <Link href="#" aria-label="Tiếng Việt">
+                  <img
+                    src="https://flagicons.lipis.dev/flags/4x3/vn.svg"
+                    alt="VN"
+                    className="h-4 w-[22px] rounded-sm ring-1 ring-zinc-300"
                   />
+                </Link>
+                <Link href="#" aria-label="English">
+                  <img
+                    src="https://flagicons.lipis.dev/flags/4x3/gb.svg"
+                    alt="EN"
+                    className="h-4 w-[22px] rounded-sm ring-1 ring-zinc-300"
+                  />
+                </Link>
+
+                {/* Theme toggle (unchanged behavior) */}
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={toggle}
+                  className="h-9 w-9"
+                >
+                  <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                  <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                  <span className="sr-only">Chuyển đổi giao diện</span>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Nav Drawer (full width) */}
+        {isMenuOpen && (
+          <div className="border-t bg-background/95 backdrop-blur-md">
+            <div className="container mx-auto px-4 md:px-6">
+              <div className="py-4 space-y-2">
+                {navItems.map((item) => (
+                  <button
+                    key={item.href}
+                    onClick={() => handleNavigation(item.href)}
+                    className="block w-full text-left px-2 py-2 text-primary underline decoration-primary underline-offset-4 decoration-2 hover:decoration-4 hover:bg-muted/50 transition-all font-semibold tracking-wide rounded"
+                  >
+                    {item.label}
+                  </button>
                 ))}
               </div>
             </div>
           </div>
+        )}
+      </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <button
-                key={item.href}
-                onClick={() => handleNavigation(item.href)}
-                className={`${
-                  isScrolled ? "text-primary" : "text-white"
-                } text-base cursor-pointer text-foreground hover:underline decoration-primary underline-offset-8 decoration-2 hover:decoration-4 transition-all font-semibold tracking-wide`}
-              >
-                {item.label}
-              </button>
-            ))}
-          </div>
+      {/* ===== DESKTOP HEADER (≥ md) ===== */}
+      <div className="hidden md:block">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="flex items-center justify-between h-20">
+            {/* Left: Logo + name (desktop keeps your current layout) */}
+            <div className="flex items-center gap-3">
+              <img
+                src="/images/logo.jpg"
+                alt="logo"
+                className="w-12 h-12 rounded-sm object-cover"
+              />
+              <div>
+                <h1 className="text-base font-bold text-primary leading-tight">
+                  CÔNG TY TNHH XÂY DỰNG BÌNH KHANG
+                </h1>
+                <div className="flex gap-1">
+                  {Array.from({ length: 5 }).map((_, index) => (
+                    <Star
+                      key={index}
+                      className="text-yellow-500 inline-block"
+                      fill="currentColor"
+                      size={18}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
 
-          {/* Theme Toggle & Mobile Menu */}
-          <div className="flex items-center gap-2">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggle}
-              className="h-9 w-9"
-            >
-              <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-              <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-              <span className="sr-only">Chuyển đổi giao diện</span>
-            </Button>
-
-            {/* Mobile Menu Button */}
-            <Button
-              variant="ghost"
-              size="icon"
-              className="md:hidden h-9 w-9"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
-            </Button>
-          </div>
-        </div>
-
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden border-t bg-background/95 backdrop-blur-md">
-            <div className="py-4 space-y-2">
+            {/* Center: Nav */}
+            <div className="flex items-center space-x-8">
               {navItems.map((item) => (
                 <button
                   key={item.href}
                   onClick={() => handleNavigation(item.href)}
-                  className="block w-full text-left px-4 py-2 text-primary underline decoration-primary underline-offset-4 decoration-2 hover:text-primary hover:decoration-4 hover:bg-muted/50 transition-all font-semibold tracking-wide"
+                  className={`${
+                    isScrolled ? "text-primary" : "text-white"
+                  } text-base cursor-pointer text-foreground hover:underline decoration-primary underline-offset-8 decoration-2 hover:decoration-4 transition-all font-semibold tracking-wide`}
                 >
                   {item.label}
                 </button>
               ))}
             </div>
+
+            {/* Right: flags + theme toggle (kept) */}
+            <div className="flex items-center gap-2">
+              <Link href="#" aria-label="Tiếng Việt">
+                <img
+                  src="https://flagicons.lipis.dev/flags/4x3/vn.svg"
+                  alt="VN"
+                  className="h-[18px] w-6 rounded-sm ring-1 ring-zinc-300"
+                />
+              </Link>
+              <Link href="#" aria-label="English">
+                <img
+                  src="https://flagicons.lipis.dev/flags/4x3/gb.svg"
+                  alt="EN"
+                  className="h-[18px] w-6 rounded-sm ring-1 ring-zinc-300"
+                />
+              </Link>
+
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={toggle}
+                className="h-9 w-9"
+              >
+                <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                <span className="sr-only">Chuyển đổi giao diện</span>
+              </Button>
+            </div>
           </div>
-        )}
+        </div>
       </div>
     </nav>
   );
