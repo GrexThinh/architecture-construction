@@ -85,8 +85,8 @@ const TopNavigation = () => {
           <div className="flex items-center gap-3">
             <img src="/images/logo.jpg" alt="logo" className="w-12" />
             <div>
-              <h1 className="text-base font-bold text-primary">
-                CÔNG TY XÂY DỰNG BÌNH KHANG
+              <h1 className="text-xs md:text-base font-bold text-primary">
+                CÔNG TY TNHH XÂY DỰNG BÌNH KHANG
               </h1>
               <div className="flex gap-1">
                 {Array.from({ length: 5 }).map((_, index) => (
