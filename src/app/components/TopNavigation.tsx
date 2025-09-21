@@ -1,7 +1,18 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Menu, X, Sun, Moon, Star } from "lucide-react";
+import {
+  Menu,
+  X,
+  Sun,
+  Moon,
+  Star,
+  Info,
+  Hammer,
+  Home,
+  FolderOpen,
+  Phone,
+} from "lucide-react";
 import { Button } from "./button";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -11,12 +22,32 @@ const TopNavigation = () => {
   const isMainPage = pathname === "/";
 
   const navItems = [
-    { label: "Trang chủ", href: isMainPage ? "#home" : "/" },
-    { label: "Về chúng tôi", href: isMainPage ? "#about" : "/#about" },
-    { label: "Dịch vụ", href: isMainPage ? "#services" : "/#services" },
-    { label: "Dự án", href: isMainPage ? "#projects" : "/#projects" },
-    { label: "Đánh giá", href: isMainPage ? "#feedbacks" : "/#feedbacks" },
-    { label: "Liên hệ", href: isMainPage ? "#contact" : "/#contact" },
+    { label: "Trang chủ", href: isMainPage ? "#home" : "/", icon: Home },
+    {
+      label: "Về chúng tôi",
+      href: isMainPage ? "#about" : "/#about",
+      icon: Info,
+    },
+    {
+      label: "Dịch vụ",
+      href: isMainPage ? "#services" : "/#services",
+      icon: Hammer,
+    },
+    {
+      label: "Dự án",
+      href: isMainPage ? "#projects" : "/#projects",
+      icon: FolderOpen,
+    },
+    {
+      label: "Đánh giá",
+      href: isMainPage ? "#feedbacks" : "/#feedbacks",
+      icon: Star,
+    },
+    {
+      label: "Liên hệ",
+      href: isMainPage ? "#contact" : "/#contact",
+      icon: Phone,
+    },
   ];
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -69,9 +100,9 @@ const TopNavigation = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/95 backdrop-blur-md" : "bg-transparent"
-      }`}
+      className={`z-50 transition-all duration-300 
+    md:fixed md:top-0 md:left-0 md:right-0
+    ${isScrolled ? "bg-background/95 backdrop-blur-md" : "bg-transparent"}`}
     >
       {/* ===== MOBILE HEADER (default) ===== */}
       <div className="md:hidden">
@@ -104,10 +135,10 @@ const TopNavigation = () => {
         </div>
 
         {/* Row 2: menu left, languages + theme right */}
-        <div className="bg-zinc-100 text-zinc-900 border-b sticky top-[48px] z-40">
+        <div className="bg-zinc-100 text-zinc-900 border-b sticky top-0 z-40 py-2">
           {/* 👆 adjust top-[48px] to the height of your brand row */}
           <div className="container mx-auto px-4 md:px-6">
-            <div className="flex items-center justify-between py-2">
+            <div className="flex items-center justify-between">
               {/* Menu button */}
               <button
                 type="button"
@@ -116,9 +147,9 @@ const TopNavigation = () => {
                 onClick={() => setIsMenuOpen((s) => !s)}
               >
                 {isMenuOpen ? (
-                  <X className="h-5 w-5" />
+                  <X className="h-6 w-6" />
                 ) : (
-                  <Menu className="h-5 w-5" />
+                  <Menu className="h-6 w-6" />
                 )}
                 <span>Menu</span>
               </button>
@@ -160,18 +191,25 @@ const TopNavigation = () => {
 
         {/* Mobile Nav Drawer (full width) */}
         {isMenuOpen && (
-          <div className="border-t bg-background/95 backdrop-blur-md">
+          <div className="border-t bg-black backdrop-blur-md">
             <div className="container mx-auto px-4 md:px-6">
               <div className="py-4 space-y-2">
-                {navItems.map((item) => (
-                  <button
-                    key={item.href}
-                    onClick={() => handleNavigation(item.href)}
-                    className="block w-full text-left px-2 py-2 text-primary underline decoration-primary underline-offset-4 decoration-2 hover:decoration-4 hover:bg-muted/50 transition-all font-semibold tracking-wide rounded"
-                  >
-                    {item.label}
-                  </button>
-                ))}
+                {navItems.map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <button
+                      key={item.href}
+                      onClick={() => handleNavigation(item.href)}
+                      className="flex items-center gap-2 w-full text-left px-2 py-2 
+                         text-primary decoration-primary decoration-2 
+                         hover:decoration-4 hover:bg-muted/50 
+                         transition-all font-semibold tracking-wide rounded"
+                    >
+                      <Icon className="h-5 w-5 flex-shrink-0" />
+                      <span>{item.label}</span>
+                    </button>
+                  );
+                })}
               </div>
             </div>
           </div>
