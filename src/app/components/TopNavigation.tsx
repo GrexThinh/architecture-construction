@@ -104,10 +104,11 @@ const TopNavigation = () => {
         </div>
 
         {/* Row 2: menu left, languages + theme right */}
-        <div className="bg-zinc-100 text-zinc-900 border-b">
+        <div className="bg-zinc-100 text-zinc-900 border-b sticky top-[48px] z-40">
+          {/* 👆 adjust top-[48px] to the height of your brand row */}
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex items-center justify-between py-2">
-              {/* Menu button (opens full mobile nav below) */}
+              {/* Menu button */}
               <button
                 type="button"
                 aria-label="Mở menu"
@@ -122,22 +123,24 @@ const TopNavigation = () => {
                 <span>Menu</span>
               </button>
 
-              {/* Flags + Theme toggle (keep your toggle UX) */}
+              {/* Flags + Theme toggle */}
               <div className="flex items-center gap-2">
-                <Link href="#" aria-label="Tiếng Việt">
-                  <img
-                    src="https://flagicons.lipis.dev/flags/4x3/vn.svg"
-                    alt="VN"
-                    className="h-4 w-[22px] rounded-sm ring-1 ring-zinc-300"
-                  />
-                </Link>
-                <Link href="#" aria-label="English">
-                  <img
-                    src="https://flagicons.lipis.dev/flags/4x3/gb.svg"
-                    alt="EN"
-                    className="h-4 w-[22px] rounded-sm ring-1 ring-zinc-300"
-                  />
-                </Link>
+                <div className="flex items-center gap-2">
+                  <Link href="#" aria-label="Tiếng Việt">
+                    <img
+                      src="https://flagicons.lipis.dev/flags/4x3/vn.svg"
+                      alt="VN"
+                      className="h-4 w-[22px] rounded-sm ring-1 ring-zinc-300"
+                    />
+                  </Link>
+                  <Link href="#" aria-label="English">
+                    <img
+                      src="https://flagicons.lipis.dev/flags/4x3/gb.svg"
+                      alt="EN"
+                      className="h-4 w-[22px] rounded-sm ring-1 ring-zinc-300"
+                    />
+                  </Link>
+                </div>
 
                 {/* Theme toggle (unchanged behavior) */}
                 <Button
