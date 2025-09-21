@@ -251,7 +251,7 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ id }) => {
               <ArrowLeft size={18} className="mr-2" />
               Quay lại dịch vụ
             </Link>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white drop-shadow-md">
+            <h1 className="text-3xl sm:text-3xl md:text-4xl font-bold text-white drop-shadow-md">
               {service.title}
             </h1>
           </div>

@@ -177,7 +177,7 @@ export default function ServicesPage() {
     <div className="container mx-auto px-4 md:px-6">
       {/* Header */}
       <div className="text-center mt-24 mb-12">
-        <h2 className="text-center font-bold text-4xl md:text-5xl mb-6 drop-shadow-lg underline decoration-primary underline-offset-4 decoration-2">
+        <h2 className="text-center font-bold text-3xl md:text-4xl mb-6 drop-shadow-lg underline decoration-primary underline-offset-4 decoration-2">
           Dịch vụ kiến trúc & xây dựng toàn diện
         </h2>
       </div>
@@ -195,7 +195,7 @@ export default function ServicesPage() {
               <CarouselItem key={i} className="basis-full">
                 <div className="grid md:grid-cols-2 h-full">
                   <div className="bg-[#0f1631] text-white p-8 md:p-14">
-                    <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold">
+                    <h3 className="text-3xl sm:text-3xl md:text-4xl font-bold">
                       {service.title}
                     </h3>
 
@@ -240,7 +240,7 @@ export default function ServicesPage() {
       {/* Process Section */}
       <div className="mx-auto mt-16 max-w-5xl px-2 sm:px-4">
         <div className="text-center mb-8 sm:mb-12">
-          <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight underline decoration-primary underline-offset-4 decoration-2">
+          <h3 className="text-3xl sm:text-3xl md:text-4xl font-bold tracking-tight underline decoration-primary underline-offset-4 decoration-2">
             Quy trình của chúng tôi
           </h3>
         </div>

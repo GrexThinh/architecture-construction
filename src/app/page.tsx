@@ -65,7 +65,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/60" />
 
         <div className="relative container mx-auto px-4 md:px-6 text-center">
-          <h2 className="text-3xl font-bold sm:text-4xl md:text-5xl mb-4 text-white">
+          <h2 className="text-3xl font-bold sm:text-3xl md:text-4xl mb-4 text-white">
             Sẵn sàng xây dựng công trình của bạn?
           </h2>
           <p className="text-lg mb-8 max-w-[600px] mx-auto opacity-90 text-white">

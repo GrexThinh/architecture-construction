@@ -43,7 +43,7 @@ export default function FeedbackPage() {
     <section id="feedbacks" className="py-16 md:py-24 bg-muted/40">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-10 md:mb-12">
-          <h2 className="text-center font-bold text-4xl md:text-5xl mb-3 drop-shadow-lg underline decoration-primary underline-offset-4 decoration-2">
+          <h2 className="text-center font-bold text-3xl md:text-4xl mb-3 drop-shadow-lg underline decoration-primary underline-offset-4 decoration-2">
             Khách hàng nói gì về chúng tôi
           </h2>
           <p className="text-muted-foreground max-w-[720px] mx-auto">
