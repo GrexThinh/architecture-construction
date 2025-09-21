@@ -135,7 +135,7 @@ const TopNavigation = () => {
         </div>
 
         {/* Row 2: menu left, languages + theme right */}
-        <div className="bg-zinc-100 text-zinc-900 border-b sticky top-0 z-40 pt-3 pb-2">
+        <div className="bg-zinc-100 text-zinc-900 border-b sticky top-0 z-40 py-2">
           {/* 👆 adjust top-[48px] to the height of your brand row */}
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex items-center justify-between">
