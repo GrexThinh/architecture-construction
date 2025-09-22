@@ -108,8 +108,8 @@ const TopNavigation = () => {
       <div className="md:hidden">
         {/* Row 1: brand on black */}
         <div className="bg-black text-white">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="relative flex items-center justify-center gap-3 py-2 bg-[url('/images/header-bg.jpg')] bg-cover bg-center">
+          <div className="container mx-auto">
+            <div className="relative flex items-center justify-center gap-3 py-2 bg-[url('/images/header-bg.jpg')] bg-cover bg-repeat">
               {/* dark overlay behind content */}
               <div className="absolute inset-0 bg-black/50 z-0" />
 
