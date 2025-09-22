@@ -94,8 +94,8 @@ export default function Home() {
                   className="w-12 h-12 object-cover"
                 />
                 <div>
-                  <h1 className="text-xl font-bold text-primary">
-                    Binh Khang Company
+                  <h1 className="text-base font-bold text-primary">
+                    CÔNG TY TNHH TƯ VẤN THIẾT KẾ XÂY DỰNG BÌNH KHANG
                   </h1>
                   <div className="flex gap-1">
                     {Array.from({ length: 5 }).map((_, index) => (

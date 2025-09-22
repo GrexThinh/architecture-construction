@@ -107,7 +107,7 @@ const TopNavigation = () => {
       {/* ===== MOBILE HEADER (default) ===== */}
       <div className="md:hidden">
         {/* Row 1: brand on black */}
-        <div className="bg-black text-white">
+        <div className="bg-black-100">
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex items-center justify-center gap-3 py-2">
               <img
