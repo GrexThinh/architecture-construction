@@ -107,27 +107,33 @@ const TopNavigation = () => {
       {/* ===== MOBILE HEADER (default) ===== */}
       <div className="md:hidden">
         {/* Row 1: brand on black */}
-        <div className="bg-black-100">
+        <div className="bg-black text-white">
           <div className="container mx-auto px-4 md:px-6">
-            <div className="flex items-center justify-center gap-3 py-2">
-              <img
-                src="/images/logo.jpg"
-                alt="logo"
-                className="w-10 h-10 object-cover rounded-sm"
-              />
-              <div>
-                <h1 className="font-bold text-primary text-sm leading-tight">
-                  <span className="block">CÔNG TY XÂY DỰNG BÌNH KHANG</span>
-                </h1>
-                <div className="flex gap-1 mt-1">
-                  {Array.from({ length: 5 }).map((_, index) => (
-                    <Star
-                      key={index}
-                      className="text-yellow-500 inline-block"
-                      fill="currentColor"
-                      size={14}
-                    />
-                  ))}
+            <div className="relative flex items-center justify-center gap-3 py-2 bg-[url('/images/header-bg.jpg')] bg-cover bg-center">
+              {/* dark overlay behind content */}
+              <div className="absolute inset-0 bg-black/50 z-0" />
+
+              {/* content above overlay */}
+              <div className="relative z-10 flex items-center gap-3">
+                <img
+                  src="/images/logo.jpg"
+                  alt="logo"
+                  className="w-10 h-10 object-cover rounded-sm"
+                />
+                <div>
+                  <h1 className="font-bold text-white text-sm leading-tight">
+                    <span className="block">CÔNG TY XÂY DỰNG BÌNH KHANG</span>
+                  </h1>
+                  <div className="flex gap-1 mt-1">
+                    {Array.from({ length: 5 }).map((_, index) => (
+                      <Star
+                        key={index}
+                        className="text-yellow-500 inline-block"
+                        fill="currentColor"
+                        size={14}
+                      />
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
