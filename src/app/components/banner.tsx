@@ -35,8 +35,10 @@ export default function Banner() {
       {/* Centered content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
         <h1 className="text-white text-2xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight drop-shadow-lg">
-          Xây dựng kiến trúc
-          <span className="block pt-4 drop-shadow-md">của bạn hôm nay</span>
+          XÂY DỰNG THIẾT KẾ
+          <span className="block pt-4 drop-shadow-md text-primary">
+            BÌNH KHANG
+          </span>
         </h1>
 
         {/* Buttons */}

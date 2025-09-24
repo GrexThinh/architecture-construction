@@ -34,14 +34,14 @@ export default function AboutPage() {
   ];
   return (
     <div className="container mx-auto px-4 md:px-6 mt-10">
-      <h3 className="text-center font-bold text-3xl md:text-4xl drop-shadow-lg underline decoration-primary underline-offset-4 decoration-2">
+      <h3 className="text-center font-bold text-3xl md:text-4xl drop-shadow-lg decoration-primary decoration-2">
         Về chúng tôi
       </h3>
 
       <StatsGrid />
 
-      <h2 className="text-center text-3xl md:text-4xl font-bold tracking-tighter mb-4 underline decoration-primary underline-offset-4 decoration-2">
-        Các loại thiết kế đã xây dựng
+      <h2 className="text-center text-3xl md:text-4xl font-bold tracking-tighter mb-4 decoration-primary decoration-2">
+        Các mẫu thiết kế
       </h2>
       <div className="relative my-10">
         <ClientCarousel
@@ -75,8 +75,8 @@ export default function AboutPage() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          {/* <CarouselPrevious />
+          <CarouselNext /> */}
         </ClientCarousel>
       </div>
     </div>

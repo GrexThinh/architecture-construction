@@ -72,7 +72,7 @@ export default function ContactPage() {
       {/* Header */}
       <div className="text-center mb-12">
         <h2 className="font-bold text-center text-3xl md:text-4xl mb-6 drop-shadow-lg decoration-primary decoration-2">
-          Hãy cùng hợp tác xây dựng công trình tuyệt vời
+          Hợp tác cùng chúng tôi xây dựng công trình tuyệt vời
         </h2>
         {/* <p className="text-muted-foreground text-lg max-w-[800px] mx-auto">
             Sẵn sàng bắt đầu dự án tiếp theo của bạn? Liên hệ với đội ngũ của

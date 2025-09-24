@@ -67,15 +67,22 @@ const Carousel = React.forwardRef<
     );
     const [canScrollPrev, setCanScrollPrev] = React.useState(false);
     const [canScrollNext, setCanScrollNext] = React.useState(false);
+    const [selectedIndex, setSelectedIndex] = React.useState(0);
+    const [slideCount, setSlideCount] = React.useState(0);
 
     const onSelect = React.useCallback((api: CarouselApi) => {
       if (!api) {
         return;
       }
-
       setCanScrollPrev(api.canScrollPrev());
       setCanScrollNext(api.canScrollNext());
+      setSelectedIndex(api.selectedScrollSnap() ?? 0);
     }, []);
+
+    React.useEffect(() => {
+      if (!api) return;
+      setSlideCount(api.scrollSnapList().length);
+    }, [api, children]);
 
     const scrollPrev = React.useCallback(() => {
       api?.scrollPrev();
@@ -84,6 +91,13 @@ const Carousel = React.forwardRef<
     const scrollNext = React.useCallback(() => {
       api?.scrollNext();
     }, [api]);
+
+    const scrollTo = React.useCallback(
+      (idx: number) => {
+        api?.scrollTo(idx);
+      },
+      [api]
+    );
 
     const handleKeyDown = React.useCallback(
       (event: React.KeyboardEvent<HTMLDivElement>) => {
@@ -102,7 +116,6 @@ const Carousel = React.forwardRef<
       if (!api || !setApi) {
         return;
       }
-
       setApi(api);
     }, [api, setApi]);
 
@@ -110,11 +123,9 @@ const Carousel = React.forwardRef<
       if (!api) {
         return;
       }
-
       onSelect(api);
       api.on("reInit", onSelect);
       api.on("select", onSelect);
-
       return () => {
         api?.off("select", onSelect);
       };
@@ -137,12 +148,34 @@ const Carousel = React.forwardRef<
         <div
           ref={ref}
           onKeyDownCapture={handleKeyDown}
-          className={cn("relative", className)}
+          className={cn("relative flex flex-col", className)}
           role="region"
           aria-roledescription="carousel"
           {...props}
         >
-          {children}
+          <div className="flex-1 w-full">{children}</div>
+          <div className="flex flex-col items-center gap-2">
+            {/* <div className="flex justify-center gap-4">
+              <CarouselPrevious className="static" />
+              <CarouselNext className="static" />
+            </div> */}
+            <div className="flex justify-center gap-2 py-2">
+              {Array.from({ length: slideCount }).map((_, idx) => (
+                <button
+                  key={idx}
+                  className={cn(
+                    "w-4 h-4 rounded-full border border-primary transition-all cursor-pointer",
+                    idx === selectedIndex
+                      ? "bg-primary scale-110"
+                      : "bg-muted hover:bg-primary/40"
+                  )}
+                  aria-label={`Go to slide ${idx + 1}`}
+                  onClick={() => scrollTo(idx)}
+                  type="button"
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </CarouselContext.Provider>
     );
@@ -205,13 +238,7 @@ const CarouselPrevious = React.forwardRef<
       ref={ref}
       variant={variant}
       size={size}
-      className={cn(
-        "absolute  h-8 w-8 rounded-full",
-        orientation === "horizontal"
-          ? "-left-12 top-1/2 -translate-y-1/2"
-          : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
-        className
-      )}
+      className={cn("h-8 w-8 rounded-full", className)}
       disabled={!canScrollPrev}
       onClick={scrollPrev}
       {...props}
@@ -234,13 +261,7 @@ const CarouselNext = React.forwardRef<
       ref={ref}
       variant={variant}
       size={size}
-      className={cn(
-        "absolute h-8 w-8 rounded-full",
-        orientation === "horizontal"
-          ? "-right-12 top-1/2 -translate-y-1/2"
-          : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
-        className
-      )}
+      className={cn("h-8 w-8 rounded-full", className)}
       disabled={!canScrollNext}
       onClick={scrollNext}
       {...props}

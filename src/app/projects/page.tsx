@@ -28,7 +28,7 @@ export default function ProjectsPage() {
   return (
     <div className="container mx-auto px-4 md:px-6">
       <div className="text-center mt-24 mb-12">
-        <h2 className="text-center font-bold text-3xl md:text-4xl mb-6 drop-shadow-lg underline decoration-primary underline-offset-4 decoration-2">
+        <h2 className="text-center font-bold text-3xl md:text-4xl mb-6 drop-shadow-lg decoration-primary decoration-2">
           Dự án của chúng tôi
         </h2>
         {/* <p className="text-muted-foreground text-lg mb-8">

@@ -107,13 +107,11 @@ const TopNavigation = () => {
       {/* ===== MOBILE HEADER (default) ===== */}
       <div className="md:hidden">
         {/* Row 1: brand on black */}
-        <div className="bg-black text-white">
+        {/* <div className="bg-black text-white">
           <div className="container mx-auto">
             <div className="relative flex items-center justify-center gap-3 py-2 bg-[url('/images/header-bg.jpg')] bg-cover bg-repeat">
-              {/* dark overlay behind content */}
               <div className="absolute inset-0 bg-black/50 z-0" />
 
-              {/* content above overlay */}
               <div className="relative z-10 flex items-center gap-3">
                 <img
                   src="/images/logo.jpg"
@@ -138,7 +136,7 @@ const TopNavigation = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Row 2: menu left, languages + theme right */}
         <div className="bg-zinc-100 text-zinc-900 border-b sticky top-0 z-40 py-2">
@@ -159,7 +157,11 @@ const TopNavigation = () => {
                 )}
                 <span>Menu</span>
               </button>
-
+              <img
+                src="/images/logo.jpg"
+                alt="logo"
+                className="w-10 h-10 object-cover rounded-sm"
+              />
               {/* Flags + Theme toggle */}
               <div className="flex items-center gap-2">
                 <div className="flex items-center gap-2">

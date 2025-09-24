@@ -28,7 +28,7 @@ export function StatsGrid() {
     <section className="rounded-xl p-6 sm:px-10 md:px-14 md:py-16 lg:px-20 lg:py-20">
       <div className="grid gap-12 lg:gap-16 md:grid-cols-2">
         <div className="max-w-xl flex flex-col">
-          <h2 className="mt-3 text-3xl md:text-5xl font-bold tracking-tight text-primary dark:text-white md:leading-14">
+          <h2 className="mt-3 text-2xl md:text-5xl font-bold tracking-tight text-primary dark:text-white md:leading-14">
             CÔNG TY TNHH TƯ VẤN THIẾT KẾ XÂY DỰNG BÌNH KHANG
           </h2>
           <p className="my-6 text-base sm:text-lg leading-relaxed md:leading-8 opacity-90">
@@ -42,18 +42,15 @@ export function StatsGrid() {
             Khám phá dịch vụ của chúng tôi
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
-
-          <div className="mt-10">
-            <img
-              src="https://miendongidc.com/upload/baiviet/6fc4332817b2efecb6a3-5629.jpg"
-              alt="đội ngũ"
-              className="rounded-xl shadow-lg w-full object-cover"
-            />
-          </div>
         </div>
 
         <div className="flex flex-col justify-between text-primary dark:text-white">
-          {stats.map((s, i) => (
+          <img
+            src="https://miendongidc.com/upload/baiviet/6fc4332817b2efecb6a3-5629.jpg"
+            alt="đội ngũ"
+            className="rounded-xl shadow-lg w-full h-full object-cover"
+          />
+          {/* {stats.map((s, i) => (
             <div key={i} className="py-4">
               <div className="flex items-center gap-4">
                 {s.icon && (
@@ -80,7 +77,7 @@ export function StatsGrid() {
                 <div className="mt-6 h-px bg-[#0f1631]/40 w-full" />
               )}
             </div>
-          ))}
+          ))} */}
         </div>
       </div>
     </section>
