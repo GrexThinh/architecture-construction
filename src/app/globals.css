@@ -18,7 +18,7 @@ html[data-theme="light"] {
 html[data-theme="dark"] {
   --background: #0a0a0a;
   --foreground: #ededed;
-  --primary: #ef4444; /* slightly brighter red-500 if needed */
+  --primary: #dc2626; /* slightly brighter red-500 if needed */
   --secondary: #ffffff; /* requirement: secondary text is white in dark */
 }
 

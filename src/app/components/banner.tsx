@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
+import { Building, Hammer } from "lucide-react";
 import { Button } from "./button";
 
 export default function Banner() {
@@ -11,7 +11,7 @@ export default function Banner() {
     }
   };
   return (
-    <div className="relative h-[90vh]">
+    <div className="relative h-[100vh]">
       <video
         src={encodeURI(
           "https://nhadepshouse.com/Giới Thiệu Quy Trình Thiết Kế - Thi Công S-House.mp4"
@@ -30,26 +30,19 @@ export default function Banner() {
       />
 
       {/* Overlay for better contrast */}
-      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 bg-black/60" />
 
       {/* Centered content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
-        <h1 className="text-white text-2xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight drop-shadow-lg">
-          XÂY DỰNG THIẾT KẾ
-          <span className="block pt-4 drop-shadow-md text-primary">
-            BÌNH KHANG
-          </span>
-        </h1>
-
         {/* Buttons */}
-        <div className="mt-10 flex flex-col sm:flex-row gap-4">
+        <div className="mt-10 flex flex-col sm:flex-row gap-5">
           <Button
             size="lg"
             className="bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/30 transition-transform duration-300 hover:scale-105"
             onClick={() => scrollToSection("#projects")}
           >
             Dự án của chúng tôi
-            <ArrowRight className="ml-2 h-4 w-4" />
+            <Building className="ml-1 h-4 w-4" />
           </Button>
           <Button
             variant="outline"
@@ -57,7 +50,7 @@ export default function Banner() {
             className="border-white text-dark hover:border-primary transition-transform duration-300 hover:scale-105"
             onClick={() => scrollToSection("#services")}
           >
-            Dịch vụ của chúng tôi
+            Dịch vụ của chúng tôi <Hammer className="ml-1 h-4 w-4" />
           </Button>
         </div>
       </div>

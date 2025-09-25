@@ -17,12 +17,12 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://binhkhangxaydung.vercel.app"),
   title: {
     default:
-      "CÔNG TY TNHH TƯ VẤN THIẾT KẾ XÂY DỰNG BÌNH KHANG - Binh Khang Company",
+      "CÔNG TY TNHH THIẾT KẾ - XÂY DỰNG VÀ ĐẦU TƯ BÌNH KHANG - Binh Khang Company",
     template:
-      "CÔNG TY TNHH TƯ VẤN THIẾT KẾ XÂY DỰNG BÌNH KHANG - Binh Khang Company",
+      "CÔNG TY TNHH THIẾT KẾ - XÂY DỰNG VÀ ĐẦU TƯ BÌNH KHANG - Binh Khang Company",
   },
   description:
-    "CÔNG TY TNHH TƯ VẤN THIẾT KẾ XÂY DỰNG BÌNH KHANG - Binh Khang Company",
+    "CÔNG TY TNHH THIẾT KẾ - XÂY DỰNG VÀ ĐẦU TƯ BÌNH KHANG - Binh Khang Company",
   keywords: [
     "Binh Khang Company",
     "Bình Khang",
@@ -59,9 +59,9 @@ export default function RootLayout({
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Architecture Construction",
-  "url": "CÔNG TY TNHH TƯ VẤN THIẾT KẾ XÂY DỰNG BÌNH KHANG",
+  "url": "CÔNG TY TNHH THIẾT KẾ - XÂY DỰNG VÀ ĐẦU TƯ BÌNH KHANG",
   "logo": "https://binhkhangxaydung.vercel.app/images/logo.jpg",
-  "description": "CÔNG TY TNHH TƯ VẤN THIẾT KẾ XÂY DỰNG BÌNH KHANG - Binh Khang Company",
+  "description": "CÔNG TY TNHH THIẾT KẾ - XÂY DỰNG VÀ ĐẦU TƯ BÌNH KHANG - Binh Khang Company",
   "foundingDate": "2020",
   "founders": [
     {

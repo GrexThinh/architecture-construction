@@ -12,6 +12,7 @@ import {
   Home,
   FolderOpen,
   Phone,
+  MapPin,
 } from "lucide-react";
 import { Button } from "./button";
 import Link from "next/link";
@@ -101,105 +102,186 @@ const TopNavigation = () => {
   return (
     <nav
       className={`z-50 transition-all duration-300 
-    fixed top-0 left-0 right-0
-    ${isScrolled ? "bg-background/95 backdrop-blur-md" : "bg-transparent"}`}
+      fixed top-0 left-0 right-0`}
     >
-      {/* ===== MOBILE HEADER (default) ===== */}
-      <div className="md:hidden">
-        {/* Row 1: brand on black */}
-        {/* <div className="bg-black text-white">
-          <div className="container mx-auto">
-            <div className="relative flex items-center justify-center gap-3 py-2 bg-[url('/images/header-bg.jpg')] bg-cover bg-repeat">
-              <div className="absolute inset-0 bg-black/50 z-0" />
+      {/* ===== DESKTOP HEADER (≥ md) ===== */}
+      <div className={`hidden md:block`}>
+        <div className={`w-full ${isScrolled ? "md:hidden" : "md:block"}`}>
+          <div className="bg-white">
+            <div className="container mx-auto px-4 md:px-6">
+              <div className="flex items-center justify-between py-4">
+                <div className="flex items-center gap-3">
+                  <img
+                    src="/images/logo.jpg"
+                    alt="logo"
+                    className="w-16 h-16 rounded-sm object-cover"
+                  />
+                  <div className="text-center text-primary ">
+                    <div className="font-bold text-xl leading-tight">
+                      CÔNG TY TNHH THIẾT KẾ - XÂY DỰNG VÀ ĐẦU TƯ
+                    </div>
+                    <div className="text-3xl font-extrabold tracking-wide">
+                      BÌNH KHANG
+                    </div>
+                  </div>
+                </div>
 
-              <div className="relative z-10 flex items-center gap-3">
-                <img
-                  src="/images/logo.jpg"
-                  alt="logo"
-                  className="w-10 h-10 object-cover rounded-sm"
-                />
-                <div>
-                  <h1 className="font-bold text-white text-sm leading-tight">
-                    <span className="block">CÔNG TY XÂY DỰNG BÌNH KHANG</span>
-                  </h1>
-                  <div className="flex gap-1 mt-1">
-                    {Array.from({ length: 5 }).map((_, index) => (
-                      <Star
-                        key={index}
-                        className="text-yellow-500 inline-block"
-                        fill="currentColor"
-                        size={14}
-                      />
-                    ))}
+                <div className="flex items-stretch gap-4">
+                  <div className="relative border-2 border-dashed border-primary/40 rounded-lg px-4 py-2 min-w-56">
+                    <div className="absolute -top-3 -left-3 bg-white rounded-full p-1 shadow-sm ring-1 ring-primary/20">
+                      <Phone className="text-primary" size={16} />
+                    </div>
+                    <div className="text-sm text-zinc-600">Hotline hỗ trợ</div>
+                    <div className="font-bold text-red-600 text-lg">
+                      058 703 0273
+                    </div>
+                  </div>
+                  <div className="relative border-2 border-dashed border-primary/40 rounded-lg px-4 py-2 min-w-56">
+                    <div className="absolute -top-3 -left-3 bg-white rounded-full p-1 shadow-sm ring-1 ring-primary/20">
+                      <MapPin className="text-primary" size={16} />
+                    </div>
+                    <div className="text-sm text-zinc-600">Địa chỉ</div>
+                    <div className="font-bold text-emerald-700 text-lg">
+                      463/62/47 Lê Đức Thọ, Phường An Hội Đông, TP.HCM
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div> */}
+        </div>
 
-        {/* Row 2: menu left, languages + theme right */}
-        <div className="bg-zinc-100 text-zinc-900 border-b sticky top-0 z-40 py-2">
-          {/* 👆 adjust top-[48px] to the height of your brand row */}
+        {/* Second row  */}
+        <div className="sticky top-0 z-40 bg-primary shadow">
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex items-center justify-between">
-              {/* Menu button */}
-              <button
-                type="button"
-                aria-label="Mở menu"
-                className="inline-flex items-center gap-2 text-sm font-semibold"
-                onClick={() => setIsMenuOpen((s) => !s)}
-              >
-                {isMenuOpen ? (
-                  <X className="h-6 w-6" />
-                ) : (
-                  <Menu className="h-6 w-6" />
-                )}
-                <span>Menu</span>
-              </button>
-              <img
-                src="/images/logo.jpg"
-                alt="logo"
-                className="w-10 h-10 object-cover rounded-sm"
-              />
-              {/* Flags + Theme toggle */}
-              <div className="flex items-center gap-2">
-                <div className="flex items-center gap-2">
+              <div className="flex-1 flex justify-start">
+                <div className="flex items-center gap-3">
                   <Link href="#" aria-label="Tiếng Việt">
                     <img
                       src="https://flagicons.lipis.dev/flags/4x3/vn.svg"
                       alt="VN"
-                      className="h-4 w-[22px] rounded-sm ring-1 ring-zinc-300"
+                      className="h-5 w-[25px] rounded-sm ring-1 ring-zinc-300"
                     />
                   </Link>
                   <Link href="#" aria-label="English">
                     <img
                       src="https://flagicons.lipis.dev/flags/4x3/gb.svg"
                       alt="EN"
-                      className="h-4 w-[22px] rounded-sm ring-1 ring-zinc-300"
+                      className="h-5 w-[25px] rounded-sm ring-1 ring-zinc-300"
                     />
                   </Link>
                 </div>
-
-                {/* Theme toggle (unchanged behavior) */}
+              </div>
+              <div className="flex items-center gap-8 py-3">
+                {navItems.map((item) => (
+                  <button
+                    key={item.href}
+                    onClick={() => handleNavigation(item.href)}
+                    className="cursor-pointer text-white/95 hover:text-white font-semibold tracking-wide
+                           uppercase decoration-2 underline-offset-8 hover:underline"
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+              <div className="flex-1 flex justify-end">
                 <Button
                   variant="ghost"
                   size="icon"
                   onClick={toggle}
-                  className="h-9 w-9"
+                  className="h-10 w-10 text-white"
                 >
-                  <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-                  <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                  {theme == "light" ? (
+                    <Sun className="h-4 w-4 rotate-0 transition-all dark:-rotate-90" />
+                  ) : (
+                    <Moon className="absolute h-4 w-4 rotate-90 transition-all dark:rotate-0" />
+                  )}
                   <span className="sr-only">Chuyển đổi giao diện</span>
                 </Button>
               </div>
             </div>
           </div>
         </div>
+      </div>
+      {/* ===== MOBILE HEADER (default) ===== */}
+      <div className="md:hidden">
+        <div className={`bg-white ${isScrolled ? "hidden" : "block"}`}>
+          <div className="container mx-auto">
+            <div className="relative flex items-center justify-center gap-3 py-1 bg-[url('/images/header-bg.jpg')] bg-cover bg-center">
+              <div className="absolute inset-0 bg-white/90" />
+              <div className="relative z-10 flex items-center gap-3">
+                <div className="leading-tight text-center text-primary font-bold">
+                  <div className="text-[14px]">
+                    CÔNG TY TNHH THIẾT KẾ - XÂY DỰNG VÀ ĐẦU TƯ
+                  </div>
+                  <div className="text-lg">BÌNH KHANG</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-        {/* Mobile Nav Drawer (full width) */}
+        {/* Second row  */}
+        <div className="bg-primary/95 text-white">
+          <div className="container mx-auto px-3">
+            <div className="grid grid-cols-3 items-center py-2">
+              <div className="flex items-center gap-2">
+                <Link href="#" aria-label="Tiếng Việt">
+                  <img
+                    src="https://flagicons.lipis.dev/flags/4x3/vn.svg"
+                    alt="VN"
+                    className="h-4 w-[22px] rounded-sm ring-1 ring-white/30"
+                  />
+                </Link>
+                <Link href="#" aria-label="English">
+                  <img
+                    src="https://flagicons.lipis.dev/flags/4x3/gb.svg"
+                    alt="EN"
+                    className="h-4 w-[22px] rounded-sm ring-1 ring-white/30"
+                  />
+                </Link>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={toggle}
+                  className="h-9 w-9 text-white hover:bg-white/10"
+                >
+                  {theme == "light" ? (
+                    <Sun className="h-4 w-4 rotate-0 transition-all dark:-rotate-90" />
+                  ) : (
+                    <Moon className="absolute h-4 w-4 rotate-90 transition-all dark:rotate-0" />
+                  )}
+                </Button>
+              </div>
+              <div className="flex justify-center">
+                <img
+                  src="/images/logo.jpg"
+                  alt="logo"
+                  className="w-8 h-8 rounded-sm object-cover ring-1 ring-white/20"
+                />
+              </div>
+              <div className="flex items-end justify-end">
+                <button
+                  type="button"
+                  aria-label="Mở menu"
+                  onClick={() => setIsMenuOpen((s) => !s)}
+                  className="inline-flex items-center gap-2 font-semibold"
+                >
+                  {isMenuOpen ? (
+                    <X className="h-6 w-6" />
+                  ) : (
+                    <Menu className="h-6 w-6" />
+                  )}
+                  <span className="sr-only">Menu</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {isMenuOpen && (
-          <div className="border-t bg-black backdrop-blur-md">
+          <div className="border-t bg-black/90 backdrop-blur-md">
             <div className="container mx-auto px-4 md:px-6">
               <div className="py-4 space-y-2">
                 {navItems.map((item) => {
@@ -209,12 +291,12 @@ const TopNavigation = () => {
                       key={item.href}
                       onClick={() => handleNavigation(item.href)}
                       className="flex items-center gap-2 w-full text-left px-2 py-2 
-                         text-primary decoration-primary decoration-2 
-                         hover:decoration-4 hover:bg-muted/50 
-                         transition-all font-semibold tracking-wide rounded"
+                           text-primary decoration-primary decoration-2 
+                           hover:decoration-4 hover:bg-white/5
+                           transition-all font-semibold tracking-wide rounded"
                     >
-                      <Icon className="h-5 w-5 flex-shrink-0" />
-                      <span>{item.label}</span>
+                      <Icon className="h-5 w-5 flex-shrink-0 text-white" />
+                      <span className="text-white">{item.label}</span>
                     </button>
                   );
                 })}
@@ -222,81 +304,6 @@ const TopNavigation = () => {
             </div>
           </div>
         )}
-      </div>
-
-      {/* ===== DESKTOP HEADER (≥ md) ===== */}
-      <div className="hidden md:block">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="flex items-center justify-between h-20">
-            {/* Left: Logo + name (desktop keeps your current layout) */}
-            <div className="flex items-center gap-3">
-              <img
-                src="/images/logo.jpg"
-                alt="logo"
-                className="w-12 h-12 rounded-sm object-cover"
-              />
-              <div>
-                <h1 className="text-base font-bold text-primary leading-tight">
-                  CÔNG TY TNHH XÂY DỰNG BÌNH KHANG
-                </h1>
-                <div className="flex gap-1">
-                  {Array.from({ length: 5 }).map((_, index) => (
-                    <Star
-                      key={index}
-                      className="text-yellow-500 inline-block"
-                      fill="currentColor"
-                      size={18}
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Center: Nav */}
-            <div className="flex items-center space-x-8">
-              {navItems.map((item) => (
-                <button
-                  key={item.href}
-                  onClick={() => handleNavigation(item.href)}
-                  className={`${
-                    isScrolled ? "text-primary" : "text-white"
-                  } text-base cursor-pointer text-foreground hover:underline decoration-primary underline-offset-8 decoration-2 hover:decoration-4 transition-all font-semibold tracking-wide`}
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
-
-            {/* Right: flags + theme toggle (kept) */}
-            <div className="flex items-center gap-2">
-              <Link href="#" aria-label="Tiếng Việt">
-                <img
-                  src="https://flagicons.lipis.dev/flags/4x3/vn.svg"
-                  alt="VN"
-                  className="h-[18px] w-6 rounded-sm ring-1 ring-zinc-300"
-                />
-              </Link>
-              <Link href="#" aria-label="English">
-                <img
-                  src="https://flagicons.lipis.dev/flags/4x3/gb.svg"
-                  alt="EN"
-                  className="h-[18px] w-6 rounded-sm ring-1 ring-zinc-300"
-                />
-              </Link>
-
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={toggle}
-                className="h-9 w-9"
-              >
-                <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-                <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-                <span className="sr-only">Chuyển đổi giao diện</span>
-              </Button>
-            </div>
-          </div>
-        </div>
       </div>
     </nav>
   );

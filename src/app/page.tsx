@@ -95,7 +95,7 @@ export default function Home() {
                 />
                 <div>
                   <h1 className="text-base font-bold text-primary">
-                    CÔNG TY TNHH TƯ VẤN THIẾT KẾ XÂY DỰNG BÌNH KHANG
+                    CÔNG TY TNHH THIẾT KẾ - XÂY DỰNG VÀ ĐẦU TƯ BÌNH KHANG
                   </h1>
                   <div className="flex gap-1">
                     {Array.from({ length: 5 }).map((_, index) => (
@@ -110,9 +110,8 @@ export default function Home() {
                 </div>
               </div>
 
-              <p className="text-muted-foreground text-sm">
-                Tạo ra những thiết kế kiến trúc và giải pháp xây dựng đặc biệt
-                từ năm 2020.
+              <p className="text-secondary text-sm">
+                Mã Số Thuế: 0317198782
               </p>
               <Image
                 src="/images/certified.png"
@@ -164,12 +163,12 @@ export default function Home() {
             <div>
               <h4 className="font-semibold mb-4">Thông tin liên hệ</h4>
               <h1 className="mt-0 text-sm mb-2">
-                CÔNG TY TNHH TƯ VẤN THIẾT KẾ XÂY DỰNG BÌNH KHANG
+                CÔNG TY TNHH THIẾT KẾ - XÂY DỰNG VÀ ĐẦU TƯ BÌNH KHANG
               </h1>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>888/40 Lạc Long Quân, Phường Tân Hòa, TP. Hồ Chí Minh</li>
-                <li>SĐT: 0832619515</li>
-                <li>Email: info@archbuildpro.com</li>
+                <li>463/62/47 Lê Đức Thọ, Phường An Hội Đông, TP.HCM</li>
+                <li>SĐT: 0587030273</li>
+                <li>Email: binhkhangdesign@gmail.com</li>
               </ul>
             </div>
           </div>

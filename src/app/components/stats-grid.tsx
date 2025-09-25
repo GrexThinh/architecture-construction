@@ -28,8 +28,8 @@ export function StatsGrid() {
     <section className="rounded-xl p-6 sm:px-10 md:px-14 md:py-16 lg:px-20 lg:py-20">
       <div className="grid gap-12 lg:gap-16 md:grid-cols-2">
         <div className="max-w-xl flex flex-col">
-          <h2 className="mt-3 text-2xl md:text-5xl font-bold tracking-tight text-primary dark:text-white md:leading-14">
-            CÔNG TY TNHH TƯ VẤN THIẾT KẾ XÂY DỰNG BÌNH KHANG
+          <h2 className="mt-3 text-2xl md:text-5xl font-bold tracking-tight text-primary text-center dark:text-white md:leading-14">
+            CÔNG TY TNHH THIẾT KẾ - XÂY DỰNG VÀ ĐẦU TƯ BÌNH KHANG
           </h2>
           <p className="my-6 text-base sm:text-lg leading-relaxed md:leading-8 opacity-90">
             Từ một nhà thầu địa phương đến một công ty lớn đa dịch vụ, chúng tôi

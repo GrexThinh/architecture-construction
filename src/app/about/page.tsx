@@ -10,7 +10,7 @@ import { StatsGrid } from "../components/stats-grid";
 // export const metadata = {
 //   title: "About",
 //   description:
-//     "CÔNG TY TNHH TƯ VẤN THIẾT KẾ XÂY DỰNG BÌNH KHANG - Binh Khang Company",
+//     "CÔNG TY TNHH THIẾT KẾ - XÂY DỰNG VÀ ĐẦU TƯ BÌNH KHANG - Binh Khang Company",
 // };
 
 export default function AboutPage() {

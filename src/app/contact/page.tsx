@@ -34,14 +34,14 @@ export default function ContactPage() {
       icon: MapPin,
       title: "Thăm văn phòng của chúng tôi",
       details: [
-        "888/40 Lạc Long Quân, Phường Tân Hòa, TP. Hồ Chí Minh, Việt Nam",
-        "Giờ làm việc: Thứ Hai - Thứ Sáu: 8:00 - 18:00",
+        "463/62/47 Lê Đức Thọ, Phường An Hội Đông, TP.HCM",
+        "Giờ làm việc: Thứ Hai - Chủ Nhật: 8:00 - 18:00",
       ],
     },
     {
       icon: Phone,
       title: "Liên hệ chúng tôi",
-      details: ["0832619515", "Email: info@archbuildpro.com"],
+      details: ["0587030273", "Email: binhkhangdesign@gmail.com"],
     },
   ];
 
@@ -210,7 +210,7 @@ export default function ContactPage() {
           <Card>
             <CardContent className="pt-6">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.4009997531075!2d106.64748677480486!3d10.780567989368446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752eb82c3e818b%3A0x5dedd34a204b0cea!2zODg4IEzhuqFjIExvbmcgUXXDom4sIFBoxrDhu51uZyA4LCBUw6JuIELDrG5oLCBI4buTIENow60gTWluaCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1757514370985!5m2!1svi!2s"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.586651900018!2d106.66889337480595!3d10.84291088930993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317529adceb63237%3A0x3d514ac50e18aa02!2zNDYzLzYyLzMgxJAuIEzDqiDEkOG7qWMgVGjhu40sIFBoxrDhu51uZyAxNiwgR8OyIFbhuqVwLCBI4buTIENow60gTWluaCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1758815851267!5m2!1svi!2s"
                 width="600"
                 height="450"
                 loading="lazy"
