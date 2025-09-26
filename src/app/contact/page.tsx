@@ -41,7 +41,7 @@ export default function ContactPage() {
     {
       icon: Phone,
       title: "Liên hệ chúng tôi",
-      details: ["0587030273", "Email: binhkhangdesign@gmail.com"],
+      details: ["0776597879", "Email: binhkhangdesign@gmail.com"],
     },
   ];
 
@@ -218,7 +218,7 @@ export default function ContactPage() {
               ></iframe>
               <p className="flex items-center text-sm text-muted-foreground pt-3">
                 <MapPinHouse className="mr-2 h-4 w-4" />
-                <span>888/40 Lạc Long Quân, TP. Hồ Chí Minh, Việt Nam</span>
+                <span>463/62/47 Lê Đức Thọ, Phường An Hội Đông, TP.HCM</span>
               </p>
             </CardContent>
           </Card>

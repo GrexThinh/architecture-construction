@@ -110,9 +110,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <p className="text-secondary text-sm">
-                Mã Số Thuế: 0317198782
-              </p>
+              <p className="text-secondary text-sm">Mã Số Thuế: 0317198782</p>
               <Image
                 src="/images/certified.png"
                 alt="chứng nhận"
@@ -167,7 +165,7 @@ export default function Home() {
               </h1>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>463/62/47 Lê Đức Thọ, Phường An Hội Đông, TP.HCM</li>
-                <li>SĐT: 0587030273</li>
+                <li>SĐT: 0776597879</li>
                 <li>Email: binhkhangdesign@gmail.com</li>
               </ul>
             </div>

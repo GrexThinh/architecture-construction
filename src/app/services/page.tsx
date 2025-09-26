@@ -233,8 +233,6 @@ export default function ServicesPage() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          {/* <CarouselPrevious />
-          <CarouselNext /> */}
         </ClientCarousel>
       </div>
       {/* Process Section */}

@@ -23,7 +23,7 @@ export default function FloatingContacts() {
       </a>
 
       <a
-        href="https://zalo.me/0587030273"
+        href="https://zalo.me/0776597879"
         className="
     group w-11 h-11 rounded-full shadow-lg
     flex items-center justify-center hover:scale-110 active:scale-95 transition

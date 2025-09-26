@@ -36,9 +36,13 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { id } = await params;
   const title = TITLE_MAP[id as (typeof SERVICE_SLUGS)[number]];
-  if (!title) return { title: "Dịch vụ | Binh Khang Company" };
+  if (!title)
+    return {
+      title:
+        "Dịch vụ | BINH KHANG INVESTMENT AND CONSTRUCTION - DESIGN CO.,LTD",
+    };
 
-  const fullTitle = `${title} | Binh Khang Company`;
+  const fullTitle = `${title} | BINH KHANG INVESTMENT AND CONSTRUCTION - DESIGN CO.,LTD`;
   return {
     title: fullTitle,
     description:

@@ -10,7 +10,7 @@ import { StatsGrid } from "../components/stats-grid";
 // export const metadata = {
 //   title: "About",
 //   description:
-//     "CÔNG TY TNHH THIẾT KẾ - XÂY DỰNG VÀ ĐẦU TƯ BÌNH KHANG - Binh Khang Company",
+//     "CÔNG TY TNHH THIẾT KẾ - XÂY DỰNG VÀ ĐẦU TƯ BÌNH KHANG - BINH KHANG INVESTMENT AND CONSTRUCTION - DESIGN CO.,LTD",
 // };
 
 export default function AboutPage() {
@@ -75,8 +75,6 @@ export default function AboutPage() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          {/* <CarouselPrevious />
-          <CarouselNext /> */}
         </ClientCarousel>
       </div>
     </div>

@@ -89,7 +89,7 @@ export default function ProjectsPage() {
                         <Badge className="absolute top-3 left-3 bg-primary text-white rounded-sm">
                           {project.category}
                         </Badge>
-                        <button className="cursor-pointer text-white absolute bottom-2 left-1/2 -translate-x-1/2 p-2 bg-primary rounded-lg transition-transform duration-300 group-hover:scale-105">
+                        <button className="cursor-pointer text-white absolute bottom-3 left-1/2 -translate-x-1/2 p-2 bg-primary rounded-lg transition-transform duration-300 group-hover:scale-105">
                           Xem chi tiết
                         </button>
                       </div>

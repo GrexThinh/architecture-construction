@@ -343,7 +343,7 @@ const ServiceDetail: React.FC<ServiceDetailProps> = ({ id }) => {
                     <div className="flex items-center gap-3">
                       <Phone className="h-5 w-5 text-primary" />
                       <a
-                        href="tel:0587030273"
+                        href="tel:0776597879"
                         className="text-foreground/90 hover:underline"
                       >
                         0587 030 273

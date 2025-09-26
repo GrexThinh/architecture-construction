@@ -87,8 +87,6 @@ export default function FeedbackPage() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          {/* <CarouselPrevious />
-          <CarouselNext /> */}
         </ClientCarousel>
       </div>
     </section>
