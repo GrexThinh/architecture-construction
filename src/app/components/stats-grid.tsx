@@ -1,6 +1,5 @@
 "use client";
 
-import CountUp from "react-countup";
 import { ArrowRight, Users, Calendar, Building, Award } from "lucide-react";
 import { Button } from "./button";
 
