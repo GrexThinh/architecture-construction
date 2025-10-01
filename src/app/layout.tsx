@@ -1,3 +1,4 @@
+// app/layout.tsx
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -13,8 +14,11 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const SITE_URL = "https://binhkhangxaydung.vercel.app";
+const OG_IMAGE = `${SITE_URL}/images/logo.jpg`;
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://binhkhangxaydung.vercel.app"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default:
       "CÔNG TY TNHH THIẾT KẾ - XÂY DỰNG VÀ ĐẦU TƯ BÌNH KHANG - BINH KHANG INVESTMENT AND CONSTRUCTION - DESIGN CO.,LTD",
@@ -43,13 +47,13 @@ export const metadata: Metadata = {
       "CÔNG TY TNHH THIẾT KẾ - XÂY DỰNG VÀ ĐẦU TƯ BÌNH KHANG - BINH KHANG INVESTMENT AND CONSTRUCTION - DESIGN CO.,LTD",
     description:
       "CÔNG TY TNHH THIẾT KẾ - XÂY DỰNG VÀ ĐẦU TƯ BÌNH KHANG - BINH KHANG INVESTMENT AND CONSTRUCTION - DESIGN CO.,LTD",
-    url: "https://binhkhangxaydung.vercel.app/",
+    url: `${SITE_URL}/`,
     siteName: "BINH KHANG INVESTMENT AND CONSTRUCTION - DESIGN CO.,LTD",
     locale: "vi_VN",
     type: "website",
     images: [
       {
-        url: "/images/logo.jpg",
+        url: OG_IMAGE, // absolute URL
         width: 1200,
         height: 630,
         alt: "BINH KHANG INVESTMENT AND CONSTRUCTION - DESIGN CO.,LTD",
@@ -62,75 +66,62 @@ export const metadata: Metadata = {
       "CÔNG TY TNHH THIẾT KẾ - XÂY DỰNG VÀ ĐẦU TƯ BÌNH KHANG - BINH KHANG INVESTMENT AND CONSTRUCTION - DESIGN CO.,LTD",
     description:
       "CÔNG TY TNHH THIẾT KẾ - XÂY DỰNG VÀ ĐẦU TƯ BÌNH KHANG - BINH KHANG INVESTMENT AND CONSTRUCTION - DESIGN CO.,LTD",
-    images: ["/images/logo.jpg"],
+    images: [OG_IMAGE], // absolute URL
   },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
+  const orgJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Architecture Construction",
+    url: `${SITE_URL}/`,
+    logo: OG_IMAGE,
+    description:
+      "CÔNG TY TNHH THIẾT KẾ - XÂY DỰNG VÀ ĐẦU TƯ BÌNH KHANG - BINH KHANG INVESTMENT AND CONSTRUCTION - DESIGN CO.,LTD",
+    foundingDate: "2022-03-14",
+    founders: [{ "@type": "Person", name: "Binh Khang" }],
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+84776597879",
+      contactType: "customer service",
+      areaServed: "VN",
+      availableLanguage: ["vi", "en"],
+    },
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "463/62/47 Lê Đức Thọ, Phường An Hội Đông, TP.HCM",
+      addressLocality: "TP. Hồ Chí Minh",
+      addressRegion: "Ho Chi Minh",
+      postalCode: "700000",
+      addressCountry: "VN",
+    },
+  };
+
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    url: `${SITE_URL}/`,
+    name: "BINH KHANG INVESTMENT AND CONSTRUCTION - DESIGN CO.,LTD",
+    // Nếu sau này làm trang /search, có thể thêm SearchAction vào đây
+  };
+
   return (
     <html lang="vi">
       <head>
+        {/* JSON-LD (valid JSON qua JSON.stringify) */}
         <script
-          dangerouslySetInnerHTML={{
-            __html: `(() => { try { const t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t); } catch(_) {} })();`,
-          }}
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
         />
-        <script type="application/ld+json">
-          {`
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Architecture Construction",
-  "url": "https://binhkhangxaydung.vercel.app/",
-  "logo": "https://binhkhangxaydung.vercel.app/images/logo.jpg",
-  "description": "CÔNG TY TNHH THIẾT KẾ - XÂY DỰNG VÀ ĐẦU TƯ BÌNH KHANG - BINH KHANG INVESTMENT AND CONSTRUCTION - DESIGN CO.,LTD",
-  "foundingDate": "2020",
-  "founders": [
-    {
-      "@type": "Person",
-      "name": "Binh Khang"
-    }
-  ],
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "0776597879",
-    "contactType": "customer service",
-    "areaServed": "VN",
-    "availableLanguage": ["Vietnamese", "English"]
-  },
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "463/62/47 Lê Đức Thọ, Phường An Hội Đông, TP.HCM",
-    "addressLocality": "TP. Hồ Chí Minh",
-    "addressRegion": "HCM",
-    "postalCode": "700000",
-    "addressCountry": "VN"
-  },
-  "sameAs": [
-    "https://www.facebook.com",
-  ]
-}
-`}
-        </script>
-        <script type="application/ld+json">
-          {`
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "url": "https://binhkhangxaydung.vercel.app/",
-  "name": "BINH KHANG INVESTMENT AND CONSTRUCTION - DESIGN CO.,LTD",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://binhkhangxaydung.vercel.app/search?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
-}
-`}
-        </script>
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
