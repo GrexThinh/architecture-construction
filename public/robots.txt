@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://binhkhangxaydung.vercel.app/
+Host: https://binhkhang.vercel.app/
 
 # Sitemaps
-Sitemap: https://binhkhangxaydung.vercel.app/sitemap.xml
+Sitemap: https://binhkhang.vercel.app/sitemap.xml

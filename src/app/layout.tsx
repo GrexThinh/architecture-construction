@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const SITE_URL = "https://binhkhangxaydung.vercel.app";
+const SITE_URL = "https://binhkhang.vercel.app";
 const OG_IMAGE = `${SITE_URL}/images/logo.jpg`;
 
 export const metadata: Metadata = {
